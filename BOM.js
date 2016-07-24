@@ -56,4 +56,99 @@ if(typeof width!="number"){
 }
 */
 
+/*
 
+//超时调用，2秒后执行函数
+setTimeout(function(){
+    alert("Lee");
+},2000);    //2秒后执行第一个参数的代码块
+*/
+
+/*
+//清除超时调用
+var box=setTimeout(function(){      //返回值是超时调用的ID
+    alert("Lee");
+},2000);
+clearTimeout(box);          //box清除时间调用
+*/
+
+
+/*
+//间歇调用
+setInterval(function(){
+    alert("lee")
+},1000);
+clearInterval(box);
+*/
+
+
+/*
+//定时器
+var num=0;
+var max=5;
+var id=null;
+function box(){
+    num++;
+    document.getElementById("test").innerHTML+=num;
+    if(num==max){
+        clearInterval(id);
+        alert("5s");
+    }
+}
+id=setInterval(box,1000);
+*/
+
+
+/*
+//使用超时调用模拟定时器间歇调用
+var num=0;
+var max=5;
+function box(){
+    num++;
+    document.getElementById("test").innerHTML+=num;
+    if(num==max){
+        alert("5s");
+    }else{
+        setTimeout(box,1000);
+    }
+}
+setTimeout(box,1000);
+*/
+
+/*
+//拆分url
+function getArgs(){
+    var args=[];
+    var qs=location.search.length>0?location.search.substring(1):"";
+    var items=qs.split('&');
+    var item=null,name=null,value=null;
+    for(var i=0;i<items.length;i++){
+        item=items[i].split('=');
+        name=item[0];
+        value=item[1];
+        args[name]=value;
+    }
+    return args;
+}
+var args=getArgs();
+alert(args['id']);
+*/
+
+location.assign("index.html");
+location.reload();
+
+function a(){
+    // location.href="http://www.baidu.com";
+    location.replace("http://www.baidu.com");   //不产生历史痕迹的跳转，无法后退
+}
+
+alert(history.length);
+function back(){
+    history.back();
+}
+function forward(){
+    history.forward();
+}
+function go(num){
+    history.go(num);        //指定前进或后退几页
+}
