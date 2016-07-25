@@ -156,7 +156,7 @@ var client=function(){
         windows:false,
         mac:false,
         unix:false,
-        systemname:""
+        systemName:""
     };
 
 
@@ -165,7 +165,13 @@ var client=function(){
     var p=navigator.platform;
     if(p.indexOf("Win")==0){
         system.windows=true;
-        system.systemname="windows";
+        if(/Windows NT (\S+);/.test(ua)) {
+            switch (RegExp["$1"]) {
+                case "6.1":
+                    system.systemName = "Windows 7";
+                    break;
+            }
+        }
     }
 
 
@@ -193,7 +199,7 @@ var client=function(){
     else if(/rv:([^\)]+)\) Gecko\/\d{8}/.test(ua)){
         engine.gecko=browser.firefox=true;
         engine.ver=browser.ver=RegExp['$1'];
-        if(/FireFox\/(\S+)/.test(ua)){
+        if(/Firefox\/(\S+)/.test(ua)){
             browser.name="Firefox";
             browser.firefox=true;
             browser.ver=RegExp["$1"];
@@ -231,4 +237,4 @@ if(client.engine.ie){
     alert("ie engine version is: "+client.engine.ver);
 }
 alert(client.browser.name);
-alert(client.system.systemname);
+alert(client.system.systemName);
