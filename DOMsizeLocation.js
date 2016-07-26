@@ -61,8 +61,17 @@ window.onload=function(){
     // alert(box.scrollTop=200);
     // scrollTop(box);
     // alert(box.scrollLeft);
+    // alert(box.getBoundingClientRect().top);
+    // alert(box.getBoundingClientRect().left);
+    // alert(box.getBoundingClientRect().bottom);
+    // alert(box.getBoundingClientRect().right);
 
+    alert(getRect(box).top);
+    alert(getRect(box).left);
+    alert(getRect(box).bottom);
+    alert(getRect(box).right);
 
+    alert(document.documentElement.clientTop+","+document.documentElement.clientLeft);
 
 };
 
@@ -85,3 +94,15 @@ function offsetTop(element){
  element.scrollTop=0;
  }
  }*/
+
+function getRect(element){
+    var rect = element.getBoundingClientRect();
+    var clientTop=document.documentElement.clientTop;
+    var clientLeft=document.documentElement.clientLeft;
+    return{
+        top:rect.top - clientTop,
+        bottom:rect.bottom-clientTop,
+        left:rect.left-clientLeft,
+        right:rect.right-clientLeft
+    }
+}

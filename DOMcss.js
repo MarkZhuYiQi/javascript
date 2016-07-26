@@ -115,7 +115,7 @@ function insertRule(sheet,tag,state,position){
     if(sheet.insertRule){
         sheet.insertRule(tag+"{"+state+"}",position);
     }else if(sheet.addRule){
-        sheet.addRule(tag,state,position)
+        sheet.addRule(tag,state,position);
     }
 }*/
 
