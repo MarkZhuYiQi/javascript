@@ -50,6 +50,8 @@ window.onload=function(){
     // table.tBodies[0].rows[0].deleteCell(1);
 
 };*/
+
+/*
 //创建table
 window.onload=function(){
     var table=document.createElement("table");
@@ -61,8 +63,7 @@ window.onload=function(){
     tr.insertCell(0).innerHTML="data1";
     tr.insertCell(1).innerHTML="data3";
     tr.insertCell(2).innerHTML="data2";
-
-
-
     document.body.appendChild(table);
-};
+};*/
+
+

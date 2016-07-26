@@ -1,0 +1,29 @@
+#box{
+    font-size:20px;
+    color:blue;
+    float:right;
+    background:#eee;
+    width:200px;
+    height:200px;
+    border:10px solid black;
+    margin:10px;
+    padding:10px;
+    overflow:scroll;
+
+}
+#pox{
+    font-size:40px;
+    color:blue;
+    background:greenyellow;
+    width:400px;
+    height:400px;
+}
+.aaa{
+    font-size:20px;
+}
+.bbb{
+    color:orange;
+}
+.ccc{
+    font-weight:bold;
+}
