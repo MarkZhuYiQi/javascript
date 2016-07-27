@@ -63,7 +63,22 @@ function removeClass(element,className){        //移除某个class名
     }
 }*/
 
-
+/*
+//删除class中的aaa
+window.onload=function(){
+    var box=document.getElementById("box");
+    var classNames=box.className.split(/\s+/);
+    var pos=-1,i,len;
+    for(i=0;i<classNames.length;i++){
+        if(classNames[i]=="aaa"){
+            pos=i;
+            break;
+        }
+    }
+    classNames.splice(i,1);
+    box.className=classNames.join(" ");
+};
+*/
 
 
 

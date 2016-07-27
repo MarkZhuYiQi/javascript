@@ -11,7 +11,6 @@ var flag=true;      //如果flag为真就加载JS脚本
 if(flag){
     loadScript("justForTest.js")
 }
-
 function loadScript(url){
     var script=document.createElement("script");
     script.type="text/javascript";
@@ -48,7 +47,8 @@ if(flag){
 
 }*/
 
-
+/*
+//动态加载CSS样式
 window.onload=function(){
 
 };
@@ -69,4 +69,5 @@ function insertRule(sheet,selectorText,cssText,position){
     }else{
         alert(1);
     }
-}
+}*/
+
