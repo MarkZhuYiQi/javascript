@@ -247,6 +247,7 @@ function getTarget(evt){
         return window.event.srcElement;
     }
 }
+/*
 addEvent(window,"load",function(){
     var box=document.getElementById("click");
     addEvent(box,"click",toBlue);
@@ -263,3 +264,136 @@ function toBlue(evt){
     removeEvent(that,"click",toBlue);
     addEvent(that,"click",toRed);
 }
+*/
+
+
+//W3C的mouseover和mouseout
+/*
+addEvent(window,"load",function(){
+    var box=document.getElementById("click");
+    addEvent(box,"mouseover",function(evt){
+        alert(evt.relatedTarget);   //得到移入box最近的对象
+    });
+});
+addEvent(window,"load",function(){
+    var box=document.getElementById("click");
+    addEvent(box,"mouseout",function(evt){
+        alert(evt.relatedTarget);   //得到移出box最近的对象
+    });
+});
+*/
+//兼容老IE的移入移出对象
+/*
+addEvent(window,"load",function(){
+    var box=document.getElementById("click");
+    addEvent(box,"mouseover",function(evt){
+        var e=evt||window.event;
+        alert(e.fromElement);   //得到移入box最近的对象
+    });
+});
+addEvent(window,"load",function(){
+    var box=document.getElementById("click");
+    addEvent(box,"mouseout",function(evt){
+        var e=evt||window.event
+        alert(e.toElement);   //得到移出box最近的对象
+    });
+});
+*/
+
+/*
+// 兼容方案，获得最近的移入移出属性
+addEvent(window,"load",function(){
+    var box=document.getElementById("click");
+    addEvent(box,"mouseover",function(evt){
+        alert(getrelatedObj(evt));
+    });
+});
+
+function getrelatedObj(evt){
+    var e=evt||window.event;
+    if(e.srcElement){   //ie
+        if(e.type=="mouseover"){
+            return e.fromElement.tagName;
+        }else if(e.type=="mouseout"){
+            return e.toElement.tagName;
+        }
+    }else if(e.relatedTarget){
+        return e.relatedTarget;
+    }
+}
+*/
+
+//取消IE控件的默认行为
+addEvent(window,"load",function(){
+    var link=document.getElementsByTagName("a")[0];
+/*
+    link.onclick=function(){
+        return false;   //必须放在最后可能无法阻止默认行为
+        //放在最前之后，后面的代码将直接忽略
+        //不能用在addevent里面
+    };
+*/
+/*
+    addEvent(link,"click",function(evt){
+        evt.preventDefault();   //阻止默认行为 W3C
+        alert();
+    });
+*/
+/*
+    addEvent(link,"click",function(evt){
+        preventDef(evt);    //兼容性阻止默认行为
+    });
+*/
+    //阻止原来的右键菜单，生成自己的菜单
+    /*
+    var text=document.getElementById("text");
+    addEvent(text,"contextmenu",function(evt){
+        preventDef(evt);    //右键菜单没了
+        var menu=document.getElementById("menu");
+        var e=evt||window.event;
+        menu.style.left=e.clientX+"px";
+        menu.style.top=e.clientY+"px";
+        menu.style.display="block";
+
+        addEvent(document,"click",function(){
+            menu.style.display="none";
+        })
+    });
+    */
+});
+//兼容性阻止默认行为函数
+function preventDef(evt){
+    var e=evt||window.event;
+    if(e.preventDefault){
+        e.preventDefault();
+    }else{
+        e.returnValue=false;    //IE的阻止默认行为方式
+    }
+}
+//卸载当前页面事件提醒，特别是发布文字页面，提醒离开时要保存内容
+/*
+addEvent(window,"beforeunload",function(evt){
+    preventDef(evt);
+});
+*/
+
+/*
+//鼠标滚轮事件
+addEvent(document,"mousewheel",function(evt){
+    var e=evt||window.event;
+    alert(e.wheelDelta);
+});
+addEvent(document,"DOMMouseScroll",function(evt){
+    alert(-evt.detail*40);
+});
+//兼容事件
+function WD(evt){
+    var e=evt||window.event;
+    if(e.wheelDelta){
+        return e.wheelDelta;
+    }else if(e.detail){
+        return e.detail;
+    }
+}
+*/
+//DOMcontentload、readystatechange

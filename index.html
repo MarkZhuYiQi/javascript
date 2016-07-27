@@ -27,6 +27,19 @@
             height:100px;
             background:red;
         }
+        #outer{
+            width:150px;
+            height:150px;
+            background:orange;
+            display:block;
+        }
+        #menu{
+            list-style:none;
+            display:none;
+            width:50px;
+            background:greenyellow;
+            position:absolute;
+        }
     </style>
 </head>
 <body>
@@ -127,9 +140,19 @@
 <!--<input type="button" value="click" />-->
 
 <!--事件对象-->
-<div id="click" class="red">
-    <input type="button" value="test">
-    test
-</div>
+<span id="outer">
+    <div id="click" class="red">
+        <input type="button" value="test">
+        test
+    </div>
+</span>
+<a href="http://www.baidu.com" target="_blank">baidu</a>
+<textarea name="" id="text" cols="30" rows="10"></textarea>
+<ul id="menu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
 </body>
 </html>
