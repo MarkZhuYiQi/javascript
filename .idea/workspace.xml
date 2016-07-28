@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7270da41-9550-4e7d-b741-1ea2961e09d8" name="Default" comment="learning">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FormSolution.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FormSolution.js" afterPath="$PROJECT_DIR$/FormSolution.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="javascript.iws" />
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="176" column="7" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
+            <state relative-caret-position="146">
+              <caret line="167" column="27" selection-start-line="167" selection-start-column="27" selection-end-line="167" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -38,21 +38,11 @@
       <file leaf-file-name="FormSolution.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FormSolution.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="278" column="48" selection-start-line="278" selection-start-column="48" selection-end-line="278" selection-end-column="48" />
+            <state relative-caret-position="7128">
+              <caret line="398" column="36" selection-start-line="398" selection-start-column="36" selection-end-line="398" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc;n#addEvent#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eventObject.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventObject.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="130" selection-end-column="3" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -108,10 +98,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="897" />
-    <option name="y" value="27" />
-    <option name="width" value="1024" />
-    <option name="height" value="954" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -138,7 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -159,7 +149,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,6 +232,7 @@
       <workItem from="1469582419702" duration="27288000" />
       <workItem from="1469628870443" duration="4968000" />
       <workItem from="1469668548138" duration="24357000" />
+      <workItem from="1469709285126" duration="8280000" />
     </task>
     <task id="LOCAL-00001" summary="learning">
       <created>1469361647814</created>
@@ -254,13 +245,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162104000" />
+    <option name="totallyTimeSpent" value="170384000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="897" y="27" width="1024" height="954" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22763419" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11566618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -312,7 +303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -640,26 +629,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventObject.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="130" selection-end-column="3" />
+        <state relative-caret-position="146">
+          <caret line="167" column="27" selection-start-line="167" selection-start-column="27" selection-end-line="167" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/eventObject.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="176" column="7" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
+        <state relative-caret-position="18">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="130" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FormSolution.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="278" column="48" selection-start-line="278" selection-start-column="48" selection-end-line="278" selection-end-column="48" />
+        <state relative-caret-position="7128">
+          <caret line="398" column="36" selection-start-line="398" selection-start-column="36" selection-end-line="398" selection-end-column="36" />
           <folding>
             <element signature="n#!!doc;n#addEvent#0" expanded="false" />
           </folding>

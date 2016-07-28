@@ -85,6 +85,9 @@ addEvent(window,"load",function(){
 
 /*
     //避免重复提交表单到服务器的办法
+    //第一种是讲提交按钮添加一个disabled属性，这种方法只能禁用提交按钮
+    //第二种是外部定义一个变量，如果提交过了就设置为true，这样防止重复提交
+
     var flag=false; //第二种
     addEvent(fm,"submit",function(evt){
         preventDef(evt);
@@ -275,8 +278,89 @@ addEvent(window,"load",function(){
     // alert(city.options[0].value+"---"+city.options[0].text); //HTML DOM
     /**
      *  使用标准DOM也可以获取
+     *  但是HTML DOM的兼容性已经完全满足需求
      */
-    alert(city.options[0].firstChild.nodeValue);
+    // alert(city.options[0].firstChild.nodeValue);    //比较麻烦
+    // alert(city.options[0].firstChild.nodeValue+"---"+city.options[0].getAttribute("value"));
+
+/*
+    /!**
+     * 单选框的selectedIndex索引属性
+     *!/
+    addEvent(city,"change",function(){
+        alert(this.selectedIndex);  //得到当前选项的索引，从0开始
+        alert(this.options[this.selectedIndex].text);   //得到当前text
+        alert(this.options[this.selectedIndex].value);  //当前value
+    });
+    city.selectedIndex=2;   //指定单选框中的索引值，选择text，用于获取
+*/
+
+/*
+    //该定位必须在option对象上
+    city.options[1].selected=true;  //设置为选定状态，可以用于判断
+    addEvent(city,"change",function(){
+        if(this.options[2].selected){
+            alert("correct");
+        }else{
+            alert("wrong");
+        }
+    });
+*/
+
+    /**
+     * 添加一个选项到select中，有HTML DOM和DOM方法，两种。
+     */
+/*
+    //用DOM方法添加
+    var option=document.createElement("option");
+    var text=document.createTextNode("guangzhou");
+    option.setAttribute("value","guangzhou");
+    option.appendChild(text);
+    city.appendChild(option);
+*/
+/*
+    //用HTML DOM方法添加,Option构造函数
+    var option=new Option("guangzhou","guangzhou");
+    city.appendChild(option);   //IE低版本出现bug
+    city.add(option,0);
+    city.add(option,null);
+    //add中两个参数是必须的，不确定索引，第二个参数设置为null即可
+    //即默认移入最后一个选项，但是IE第二个参数是可选的，所以设置null代表一个不存在的位置
+    //导致失踪，为了兼容可以设置为undefined。
+    city.add(option,undefined); //最佳兼容方案
+*/
+
+/*
+    /!**
+     * 删除一个选项
+     *!/
+    var option=document.createElement("option");
+    // city.removeChild(city.options[0]);
+    // city.remove(0);
+    // city.remove(0);  //索引序号会自动顶上去
+    // city.options[0]=null;
+*/
+
+/*
+    /!**
+     * 移动选项
+     *!/
+    var info=fm.elements["info"];
+    addEvent(city,"click",function(){
+        info.appendChild(this.options[city.selectedIndex]); //点击后移动到info列表中去
+    });
+*/
+
+    // alert(city.selectedIndex);
+    // alert(city.options[0].index);   //index和SELECTEDINDEX类似
+
+/*
+    /!**
+     * 对选项进行排序
+     *!/
+    var option1=city.options[2];    //beijing
+    city.insertBefore(option1,city.options[option1.index-1]);
+*/
 
 
     //F5只能浅刷新，缓存级别的刷新，ctrl+F5完整刷新
