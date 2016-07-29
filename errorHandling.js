@@ -128,34 +128,63 @@
     alert(getQueryString(5));
 */
 
-//
-function sortArray(arr){
-    // if(typeof arr.sort=="function"){    //判断sort方法是否存在
-    if(arr instanceof Array){    //判断sort方法是否存在
-        arr.sort();
-        return arr;
-    }else{
-        return "数据出错";
+/*
+    //
+    function sortArray(arr){
+        // if(typeof arr.sort=="function"){    //判断sort方法是否存在
+        if(arr instanceof Array){    //判断sort方法是否存在
+            arr.sort();
+            return arr;
+        }else{
+            return "数据出错";
+        }
     }
-}
-// var box=[5,6,1,3,9,10];
-// var box= {
-//     sort:function(){}
-// };
-var box=null;
-alert(sortArray(box));
+    // var box=[5,6,1,3,9,10];
+    // var box= {
+    //     sort:function(){}
+    // };
+    var box=null;
+    alert(sortArray(box));
 
-//如果我模拟了数组的sort方法的对象，就能绕过判断
-//typeof arr.sort=="function"判断还会导致两个错误，模拟sort对象方法
+    //如果我模拟了数组的sort方法的对象，就能绕过判断
+    //typeof arr.sort=="function"判断还会导致两个错误，模拟sort对象方法
+*/
 
+//错误调试方法
+/*
+    console.error("错误");
+    console.info("信息");
+    console.log("日志");
+    console.warn("警告");
+*/
 
+/*
+    var num1=1;
+    // console.log("num1="+num1+"类型："+typeof num1);
+    var num2=2;
+    // console.log("num1="+num2+"类型："+typeof num2);
+    var result=num1+num2;
+    alert(result);
+    //console调试不删除程序也照样执行，alert会阻断后面的代码执行
+*/
 
+/*
+    var num1=1;
+    if(typeof num1!="number") throw new Error("num1 must be number!");
+    var num2=2;
+    if(typeof num2!="number") throw new Error("num2 must be number!");
+    var result = num1+num2;
+    aler    t(result);
+*/
 
-
-
-
-
-
+addEvent(window,"load",function(){
+    var box=document.getElementById("box");
+    addEvent(box,"click",function(){
+        this.innerHTML="what a fucking day!";
+    });
+});
+//设置的断点就是调试的起点，单步进入就是一步一步的执行流程
+//断点要及时清除
 
 
 
