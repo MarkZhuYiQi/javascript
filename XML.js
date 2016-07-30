@@ -19,22 +19,22 @@
     addEvent(window,"load",function(){
         var p=document.getElementById("info");
         // alert(document.getElementById("info").innerHTML);
-        p.innerHTML=1;
+        var parser=new DOMParser(),
+            xmlDOM,
+            errors;
+        try{
+            xmlDOM=parser.parseFromString("<root","text/xml");
+            alert(xmlDOM.documentElement.childElementCount);
+            errors=xmlDOM.getElementsByTagName("parsererror");  //查找是否有这个元素，有的话说明有错误
+            if(errors.length>0){
+                throw new Error(errors[0].innerHTML);
+            }
+        }catch(e){
+            p.innerHTML=e;
+        }
     });
 
-    var parser=new DOMParser(),
-        xmlDOM,
-        errors;
-    try{
-        xmlDOM=parser.parseFromString("<root","text/xml");
-        alert(xmlDOM.documentElement.childElementCount);
-        errors=xmlDOM.getElementsByTagName("parsererror");  //查找是否有这个元素，有的话说明有错误
-        if(errors.length>0){
-            throw new Error(errors[0].innerHTML);
-        }
-    }catch(e){
-        alert(p.tagName);
-    }
+
 
     var serializer=new XMLSerializer();
     var xml=serializer.serializeToString(xmlDOM);
