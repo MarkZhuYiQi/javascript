@@ -1,0 +1,44 @@
+/**
+ * Created by Administrator on 2016/7/31.
+ */
+//json简单值
+    10
+    "hello"
+    true
+    null
+
+//json对象表示
+{
+    "name" : "Lee",
+    "age" : 100
+}
+
+//json数组
+[100,"lee",true];
+
+[
+    {
+            "title":"a",
+            "num":1
+    },
+    {
+            "title":"b",
+            "num":2
+    },
+    {
+            "title":"c",
+            "num":3
+    }
+]
+
+//模拟加载json字符串，var json=load(JSON.json),把字符串加载进来并赋值给变量
+
+
+
+
+
+
+
+
+//json实际上是字符串
+//json对象和数组，少了分号，少了变量赋值了，而且本身以字符串表示
