@@ -1,13 +1,62 @@
-.a{
-    color:red;
-    font-size:100px;
+body{
+    margin:0;
+    padding:0;
+    background:url(../images/header_bg.png) repeat-x;
+    color:#333;
+    font-size:14px;
 }
-.b{
-    background:#ccc;
+#header{
+    height:30px;
+    width:768px;
+    margin:0 auto;
 }
-.c{
-    font-weight:bold;
+#header .logo{
+    width:100px;
+    height:30px;
+    float:left;
 }
-.d{
-    text-decoration:underline;
+#header .logo img{
+    display:block;
+}
+#header .member{
+    width:70px;
+    height:30px;
+    line-height:30px;
+    float:right;
+    background:url(../images/arrow.png) no-repeat right center;
+    cursor:pointer;
+}
+#header ul{
+    position:absolute;
+    left:80%;
+    top:30px;
+    background:#fbf7e1;
+    width:100px;
+    height:110px;
+    border:1px solid #999;
+    border-top:none;
+    padding:10px 0 0 0;
+}
+#header ul li{
+    height:25px;
+    line-height:25px;
+    text-indent:20px;
+    letter-spacing:2px;
+}
+#header ul li a{
+    display:block;
+    text-decoration:none;
+    color:#333;
+    background:url(../images/arrow3.gif) no-repeat 5px center;
+}
+#header ul li a:hover{
+    background:#fc0 url(../images/arrow4.gif) no-repeat 5px center;
+}
+ul{
+    padding:0;
+    margin:0;
+    display:none;
+}
+ul li{
+    list-style:none;
 }

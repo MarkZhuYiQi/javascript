@@ -5,14 +5,18 @@
 
 
 //每次调用的时候都是新建一个对象
-var $=function(){
-    return new Base();
+var $=function(_this){
+    return new Base(_this);
 };
 //基础类库
-function Base(){
+function Base(_this){
     //创建一个数组保存获取的节点和节点数组
     //私有属性，防止共有导致操作影响无关元素
     this.elements=[];
+    //this是一个对象，，undefined也是对象，区别于typeof返回的单引号'undefined'
+    if(_this!=undefined){
+        this.elements[0]=_this;
+    }
 }
 
 //获取ID节点
@@ -98,7 +102,7 @@ Base.prototype.addClass=function(className){
 //移除CLASS
 Base.prototype.removeClass=function(className){
     for(var i=0;i<this.elements.length;i++){
-        if(this.elements[i].className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))){
+        if(this.elements[i].className.match(new RegExp("(\\s|^)"+className+"(\\s|$)"))){    //因为不在\\模式匹配中，需要加一个\转义\
             this.elements[i].className=this.elements[i].className.replace(new RegExp("(\\s|^)"+className+"(\\s|$)"),'');
         }
     }
@@ -118,9 +122,31 @@ Base.prototype.addRule=function(num,selectorText,cssText,position){
 Base.prototype.removeRule=function(num,index){
     var sheet=document.styleSheets[num];        //获得样式表
     if(typeof sheet.deleteRule!="undefined"){
-        sheet.deleteRule(index);   //W3C
+        sheet.deleteRule(0);   //W3C
     }else if(typeof sheet.removeRule!="undefined"){
-        sheet.removeRule(index);  //IE9一下
+        sheet.removeRule(0);  //IE9一下
     }
     return this;
+};
+//hover方法，设置鼠标移入移出方法
+Base.prototype.hover=function(over,out){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i].onmouseover=over;
+        this.elements[i].onmouseout=out;
+    }
+    return this;
+};
+//设置显示
+Base.prototype.show=function(){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i].style.display="block";
+    }
+};
+
+
+
+Base.prototype.hide=function(){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i].style.display="none";
+    }
 };
