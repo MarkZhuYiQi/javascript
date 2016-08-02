@@ -231,7 +231,7 @@ function addEvent(obj,type,func){
     }
 }
 
-//跨浏览器移出事件
+//跨浏览器移除事件
 function removeEvent(obj,type,func){
     if(obj.removeEventListener){
         obj.removeEventListener(type,func,false);  //兼容W3C
