@@ -15,7 +15,7 @@ function Base(_this){
     this.elements=[];
     //this是一个对象，，undefined也是对象，区别于typeof返回的单引号'undefined'
     if(_this!=undefined){
-        this.elements[0]=_this;
+        this.elements[0]=_this;     //将当前作用域对象放进数组第一位
     }
 }
 
@@ -27,12 +27,12 @@ Base.prototype.getId=function(id){
 //获取CLASS节点
 Base.prototype.getClass=function(className,id){
     var node=null;
-    if(arguments.length==2){
+    if(arguments.length==2){    //参数数量，如果为2，就先去获得ID所在控件
         node=document.getElementById(id);
     }else{
-        node=document;
+        node=document;          //如果没有id参数，就把全局作为作用域
     }
-    var all=node.getElementsByTagName("*");
+    var all=node.getElementsByTagName("*"); //获得所有元素节点
     for(var i=0;i<all.length;i++){
         if(all[i].className==className){
             this.elements.push(all[i]);
@@ -157,7 +157,6 @@ Base.prototype.resize=function(func){
             if(element.offsetTop>getInner().height-element.offsetHeight){
                 element.style.top=getInner().height-element.offsetHeight+"px";
             }
-
         };
     }
     return this;
@@ -200,7 +199,6 @@ Base.prototype.drag=function(){
             if(typeof _this.setCapture!="undefined"){
                 _this.setCapture();
             }
-
             document.onmousemove=function(e){
                 var left=e.clientX-diffX;
                 //这难道不是_this.offsetLeft吗？解答：该属性是只读的，不可赋值

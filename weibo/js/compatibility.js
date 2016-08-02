@@ -58,3 +58,18 @@ function preDef(event){
         e.returnValue=false;
     }
 }
+//ie常用的event对象配对到W3C中
+addEvent.fixEvent=function(event){
+    event.preventDefault = addEvent.fixEvent.preventDefault;
+    event.stopPropagation=addEvent.fixEvent.stopPropagation;
+
+    return event;
+};
+//ie阻止默认行为
+addEvent.fixEvent.preventDefault=function(){
+    this.returnValue=false;
+};
+//IE取消冒泡
+addEvent.fixEvent.stopPropagation=function(){
+    this.cancelBubble=true;
+};
