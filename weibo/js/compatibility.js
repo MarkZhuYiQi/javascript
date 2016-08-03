@@ -1,6 +1,20 @@
 /**
  * Created by SZL4ZSY on 8/2/2016.
  */
+//浏览器检测
+(function () {
+    window.sys = {};
+    var ua = navigator.userAgent.toLowerCase();
+    var s;
+    (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] :
+        (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] :
+            (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] :
+                (s = ua.match(/opera\/.*version\/([\d.]+)/)) ? sys.opera = s[1] :
+                    (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] :
+                        (s = ua.match(/rv:([\d.]+)/)) ? sys.ie=s[1] : 0;
+})();
+
+
 //跨浏览器获得视窗大小
 function getInner(){
     if(typeof window.innerWidth!="undefined"){
