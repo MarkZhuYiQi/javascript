@@ -1,6 +1,10 @@
 /**
  * Created by Administrator on 2016/8/1.
  */
+
+
+
+
 window.onload=function(){
     //header
     $().getClass("member").hover(function(){
@@ -33,8 +37,9 @@ window.onload=function(){
         $().getId("screen").unlock();
     });
 
-    //拖拽登录框
-    login.drag();
+
+    //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
+    login.drag([$().getTagName("h2").getElementBack(0)]);
 
 
 };
