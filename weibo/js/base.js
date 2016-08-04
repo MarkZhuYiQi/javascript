@@ -149,7 +149,7 @@ Base.prototype.getTagName=function(tag,parentNode){
 Base.prototype.css=function(attr,value){
     for(var i=0;i<this.elements.length;i++){
         if(arguments.length==1){
-            return getStyle(this.elements[i],attr);
+            return getStyle(this.elements[i],attr)+"px";    //课程疑问，这里写死了，别的属性怎么办？
         }
         this.elements[i].style[attr]=value;    //用数组方式
     }
@@ -343,3 +343,29 @@ Base.prototype.extend =function(name,plugin){
 function trim(str){
     return str.replace(/(^\s*)(\s*$)/g,'');
 }
+
+Base.prototype.animation=function(obj){
+    for(var i=0;i<this.elements.length;i++){
+        var element=this.elements[i];
+        var attr=obj["attr"]!=undefined?obj["attr"]:"left"; //可选，不传递用默认值
+        var start=obj["start"]!=undefined?obj["start"]:getStyle(element,attr);  //可选，默认CSS起始位置
+        var interval=obj["interval"]?obj["interval"]:30;//如果没有值就使用30
+        var final_x=obj["alter"]+start;     //必须有
+        element.style[obj.attr]=obj.start+"px";     //每次点击都从start处开始
+        clearInterval(window.timer);        //防止多次点击后，速度会累加
+        timer=setInterval(function() {
+            var xpos = getStyle(element, attr);
+            if (xpos < final_x) {
+                var dist = Math.ceil((final_x - xpos) / 10);
+                xpos += dist;
+            }
+            if (xpos > final_x) {
+                var dist = Math.ceil((xpos - final_x) / 10);
+                xpos -= dist;
+            }
+            element.style[attr] = xpos + "px";
+            if(getStyle(element,attr)>=final_x)clearInterval(timer);
+        },interval);
+    }
+    return this;
+};
