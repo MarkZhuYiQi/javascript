@@ -71,8 +71,16 @@ function Base(args){
         if(args!=undefined){
             this.elements[0]=args;
         }
+    }else if(typeof args=="function"){  //$(function)
+        this.ready(args);
     }
 }
+//addDomLoaded,ready方法
+Base.prototype.ready=function(args){
+    addDomLoaded(args);
+};
+
+
 
 //获取ID节点
 Base.prototype.getId=function(id){
@@ -109,6 +117,16 @@ Base.prototype.getElement=function(num){
 Base.prototype.getElementBack=function(num){
     return this.elements[num];
 };
+//获取首个节点，并返回这个节点对象
+Base.prototype.first=function(){
+    return this.elements[0];
+};
+//获取最后以个节点，并返回这个节点对象
+Base.prototype.last=function(){
+    return this.elements[this.elements.length-1];
+};
+
+
 
 //获取元素节点
 Base.prototype.getTagName=function(tag,parentNode){
@@ -191,7 +209,7 @@ Base.prototype.html=function(str){
 };
 //设置点击事件
 Base.prototype.click=function(func){
-    alert(this.elements);
+    // alert(this.elements);
     for(var i=0;i<this.elements.length;i++){
         this.elements[i].onclick=func;    //用数组方式
     }

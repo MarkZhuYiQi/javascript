@@ -7,7 +7,8 @@
 //对Base的prototype操作，加入drag函数
 //需要使用时载入该函数，自动执行继承，即可调用使用
 
-$().extend("drag",function(dragArea){
+$().extend("drag",function(){
+    var dragArea=arguments;     //传入值保存到tags
     for(var i=0;i<this.elements.length;i++){
         //点击某个物体，用signDiv，move和up是全局区域
         /*

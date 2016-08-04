@@ -25,5 +25,5 @@ window.onload=function(){
     // $("#box").css("color","red");
     // $("div").find("p").find(".a").css("font-size","100px");
     // $(".a span").css("font-size","50px").css("color","red");
-    $("div div").css("font-size","50px").css("color","red");
+    // $("div div").css("font-size","50px").css("color","red");
 };

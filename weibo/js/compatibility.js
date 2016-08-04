@@ -6,14 +6,62 @@
     window.sys = {};
     var ua = navigator.userAgent.toLowerCase();
     var s;
+    // alert(ua);
     (s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[1] :
         (s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[1] :
             (s = ua.match(/chrome\/([\d.]+)/)) ? sys.chrome = s[1] :
                 (s = ua.match(/opera\/.*version\/([\d.]+)/)) ? sys.opera = s[1] :
                     (s = ua.match(/version\/([\d.]+).*safari/)) ? sys.safari = s[1] :
                         (s = ua.match(/rv:([\d.]+)/)) ? sys.ie=s[1] : 0;
+    if(/webkit/.test(ua)){
+        sys.webkit=ua.match(/webkit\/([\d.]+)/)[1];
+        // alert(sys.webkit);
+    }
 })();
 
+//DOM加载，在页面DOM加载完就立刻执行script而不需要等图片什么全加载完再运行
+function addDomLoaded(func){
+    var isReady=false;                  //运行完毕的判断
+    var timer=null;                     //计数器为空
+    function doReady(func){
+        if(timer)clearInterval(timer);  //如果时间已经存在就清除事件
+        if(isReady)return;              //如果已经加载完毕就返回
+        isReady=true;                   //将运行完毕的判断设置为真
+        func();                         //执行事件
+    }
+    if((sys.opera&&sys.opera<9)||(sys.firefox&&sys.firefox<3)||(sys.webkit&&sys.webkit<525)){
+        //无论采用哪种，基本用不到
+        /*
+         //这种方法，目前在主流浏览器判断的都是complete，类似于onload，即图片加载后才加载
+         timer=setInterval(function(){
+         if(/loaded|complete/.test(document.readyState)){    //loaded是部分加载，只是dom加载完毕，complete是完全加载
+         doReady(func);
+         }
+         },1);
+         */
+        //通过判断文档的DOM方法是否都存在来判断
+        timer=setInterval(function(){
+            if(document&&document.getElementById&&document.getElementsByTagName&&document.body){
+                doReady(func);
+            }
+        },1);
+    }else if(document.addEventListener){  //W3C
+        addEvent(document,"DOMContentLoaded",function(){
+            func();
+            removeEvent(document,"DOMContentLoaded",arguments.callee);
+        });
+    }else if(sys.ie&&sys.ie<9){
+        var timer=null;
+        timer=setInterval(function(){
+            try{
+                document.documentElement.doScroll("left");
+                doReady(func);
+            }catch(e){
+                // throw new Error(e);
+            }
+        },1);
+    }
+}
 
 //跨浏览器获得视窗大小
 function getInner(){
