@@ -363,19 +363,17 @@ Base.prototype.animation=function(obj){
         var speed = obj["speed"]!=undefined?obj["speed"]:10;
 
         if(alter != undefined && final == undefined) {
-            final = alter;
-        }else if(alter!=undefined && final != undefined) {
-            final = final + alter;
+            final = start + alter;
         }else if(alter == undefined && final == undefined){
             throw new Error("alter or final must transmit at least one!");
         }
 
-        if(attr=="opacity"){
-            element.style.opacity=parseInt(start)/100;
-            element.style.filter="alpha(opacity="+parseInt(start)+")";
-        }else{
-            element.style[attr]=start+"px";     //每次点击都从start处开始
-        }
+        // if(attr=="opacity"){
+        //     element.style.opacity=parseInt(start)/100;
+        //     element.style.filter="alpha(opacity="+parseInt(start)+")";
+        // }else{
+        //     element.style[attr]=start+"px";     //每次点击都从start处开始
+        // }
 
 
         clearInterval(window.timer);                //防止多次点击后，速度会累加
@@ -434,7 +432,15 @@ Base.prototype.animation=function(obj){
                     clearInterval(timer);
                 }
             }else{
-                if(parseInt(getStyle(element,attr))==final)clearInterval(timer);
+                if(parseInt(getStyle(element,attr))==final){
+                    clearInterval(timer);
+                    if(attr=="opacity"){
+                        element.style.opacity=parseInt(start)/100;
+                        element.style.filter="alpha(opacity="+parseInt(start)+")";
+                    }else{
+                        element.style[attr]=start+"px";     //每次点击都从start处开始
+                    }
+                }
             }
         },interval);
     }

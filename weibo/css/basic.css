@@ -212,3 +212,127 @@ body{
 #share.share_footer a:hover {
     color:#06f;
 }
+
+#shared{
+    width:210px;
+    height:315px;
+    border:1px solid #ccc;
+    position:absolute;
+    top:100px;
+    left:-211px;
+    background:#fff;
+}
+#shared h2{
+    height:30px;
+    line-height:30px;
+    margin:0;
+    padding:0;
+    background:#eee;
+    font-size:14px;
+    color:#666;
+    text-indent:10px;
+}
+#shared ul{
+    padding:3px 0 2px 5px;
+    height:254px;
+    font-size:13px;
+}
+#shared ul li{
+    width:96px;
+    height:28px;
+    float:left;
+    padding:2px;
+}
+#shared ul li a{
+    display:block;
+    width:95px;
+    height:26px;
+    line-height:26px;
+    text-decoration:none;
+    text-indent:30px;
+    background-image:url(../images/share_bg.png);
+    background-repeat:no-repeat;
+    color:#666;
+}
+#shared ul li a:hover{
+    background-color:#eee;
+    opacity:0.7;
+    filter:alpha(opacity=70);
+    color:#06f;
+}
+#shared ul li a.a{
+    background-position:5px 5px;
+}
+#shared ul li a.b{
+    background-position:5px -25px;
+}
+#shared ul li a.c{
+    background-position:5px -55px;
+}
+#shared ul li a.d{
+    background-position:5px -85px;
+}
+#shared ul li a.e{
+    background-position:5px -115px;
+}
+#shared ul li a.f{
+    background-position:5px -145px;
+}
+#shared ul li a.g{
+    background-position:5px -175px;
+}
+#shared ul li a.h{
+    background-position:5px -205px;
+}
+#shared ul li a.i{
+    background-position:5px -235px;
+}
+#shared ul li a.j{
+    background-position:5px -265px;
+}
+#shared ul li a.k{
+    background-position:5px -295px;
+}
+#shared ul li a.l{
+    background-position:5px -325px;
+}
+#shared ul li a.m{
+    background-position:5px -355px;
+}
+#shared ul li a.n{
+    background-position:5px -385px;
+}
+#shared ul li a.o{
+    background-position:5px -415px;
+}
+#shared ul li a.p{
+    background-position:5px -445px;
+}
+#shared .shared_footer{
+    background:#eee;
+    height:26px;
+    position:relative;
+}
+#shared .shared_footer span{
+    background-image:url(../images/share.png);
+    background-repeat:no-repeat;
+    display:block;
+    width:24px;
+    height:88px;
+    position:absolute;
+    top:-230px;
+    left:210px;
+    cursor:pointer;
+}
+#shared .shared_footer a{
+    position:absolute;
+    right:10px;
+    text-decoration:none;
+    display:block;
+    height:25px;
+    line-height:25px;
+    font-size:13px;
+    color:#666;
+    text-indent:15px;
+    background:url("../images/share_bg.png") no-repeat 0 -472px;
+}

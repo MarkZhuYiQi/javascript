@@ -35,4 +35,24 @@ $(function(){
     //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
     // login.drag([$("h2").getElementBack(0)]);
     login.drag($("#login h2").first(),$(".other").first());
+
+//分享按钮初始化位置
+    $("#shared").css("top",(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");
+//分享收缩效果
+    $("#shared").hover(function(){
+        $(this).animation({
+            "attr":"x",
+            "final":0,
+            "start":-211,
+            "effect":"gradient"
+        });
+    },function(){
+        $(this).animation({
+            "attr":"x",
+            "final":-211,
+            "start":0,
+            "effect":"gradient"
+        });
+    });
 });
+
