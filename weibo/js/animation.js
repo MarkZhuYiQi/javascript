@@ -37,13 +37,22 @@ $(function(){
     },30);
 });
 */
-$(function(){
-    $("#btn").click(function(){
-        $("#box").animation({
-            "attr":"top",
-            "alter":100,
-            "start":100,
-            "timestep":30
+
+/*
+    //移动动画
+    $(function(){
+        $("#btn").click(function(){
+            $("#box").animation({
+                "attr":"y",
+                // "alter":200,
+                "final":10,
+                "start":100,
+                "timestep":30,
+                "step":2,
+                "effect":"gradient",
+                "speed":30
+            });
         });
     });
-});
+    //透明度
+*/

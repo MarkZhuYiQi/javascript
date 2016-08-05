@@ -149,7 +149,7 @@ Base.prototype.getTagName=function(tag,parentNode){
 Base.prototype.css=function(attr,value){
     for(var i=0;i<this.elements.length;i++){
         if(arguments.length==1){
-            return getStyle(this.elements[i],attr)+"px";    //课程疑问，这里写死了，别的属性怎么办？
+            return getStyle(this.elements[i],attr);    //课程疑问，这里写死了，别的属性怎么办？在写渐变时去掉了parseInt,这里就不需要+"px"了
         }
         this.elements[i].style[attr]=value;    //用数组方式
     }
@@ -345,26 +345,97 @@ function trim(str){
 }
 
 Base.prototype.animation=function(obj){
-    for(var i=0;i<this.elements.length;i++){
-        var element=this.elements[i];
-        var attr=obj["attr"]!=undefined?obj["attr"]:"left"; //可选，不传递用默认值
-        var start=obj["start"]!=undefined?obj["start"]:getStyle(element,attr);  //可选，默认CSS起始位置
-        var interval=obj["interval"]?obj["interval"]:30;//如果没有值就使用30
-        var final_x=obj["alter"]+start;     //必须有
-        element.style[obj.attr]=obj.start+"px";     //每次点击都从start处开始
-        clearInterval(window.timer);        //防止多次点击后，速度会累加
-        timer=setInterval(function() {
-            var xpos = getStyle(element, attr);
-            if (xpos < final_x) {
-                var dist = Math.ceil((final_x - xpos) / 10);
-                xpos += dist;
+    for(var i = 0;i < this.elements.length;i++){
+        var element = this.elements[i];
+        var effect = obj["effect"]!=undefined?obj["effect"]:"gradient";   //效果，默认由快到慢，可选normal
+
+        var attr = obj["attr"] == "x" ? "left":obj["attr"] == "y" ? "top" :
+            obj["attr"] == "w" ? "width" : obj["attr"] == "h" ? "height" :
+            obj["attr"]=="o" ? "opacity":"left";            //可选，不传递用默认值
+
+        var start = obj["start"]!=undefined?obj["start"]:
+            attr=="opacity" ? parseFloat(getStyle(element,attr))*100 :
+                parseInt(getStyle(element,attr));
+        var interval = obj["interval"]?obj["interval"]:30;//如果没有值就使用30
+        var step = obj["step"]?obj["step"]:5;
+        var alter = obj["alter"];    //必须有
+        var final = obj["final"];
+        var speed = obj["speed"]!=undefined?obj["speed"]:10;
+
+        if(alter != undefined && final == undefined) {
+            final = alter;
+        }else if(alter!=undefined && final != undefined) {
+            final = final + alter;
+        }else if(alter == undefined && final == undefined){
+            throw new Error("alter or final must transmit at least one!");
+        }
+
+        if(attr=="opacity"){
+            element.style.opacity=parseInt(start)/100;
+            element.style.filter="alpha(opacity="+parseInt(start)+")";
+        }else{
+            element.style[attr]=start+"px";     //每次点击都从start处开始
+        }
+
+
+        clearInterval(window.timer);                //防止多次点击后，速度会累加
+        timer = setInterval(function() {
+            if(attr=="opacity"){
+                var xpos=parseInt(parseFloat(getStyle(element,attr))*100);
+            }else{
+                var xpos = parseInt(getStyle(element, attr));
             }
-            if (xpos > final_x) {
-                var dist = Math.ceil((xpos - final_x) / 10);
-                xpos -= dist;
+            switch(effect) {
+                case "gradient":
+                    if (attr == "opacity") {
+
+                        if(xpos<final){
+                            var dist=parseInt(Math.ceil((final - xpos) / speed));
+                            xpos+=dist;
+                        }
+                        if(xpos>final){
+                            var dist=parseInt(Math.ceil((xpos - final) / speed));
+                            xpos-=dist;
+                        }
+                        element.style.opacity=parseInt(xpos)/100;
+                        element.style.filter="alpha(opacity="+parseInt(xpos)+")";
+                    } else {
+                        if (xpos < final) {
+                            var dist = Math.ceil((final - xpos) / speed);
+                            xpos += dist;
+                        }
+                        if (xpos > final) {
+                            var dist = Math.ceil((xpos - final) / speed);
+                            xpos -= dist;
+                        }
+                        element.style[attr] = xpos + "px";
+                    }
+                    break;
+                case "normal":
+                    if(attr=="opacity"){
+                        var temp=parseFloat(getStyle(element,attr))*100;
+                        element.style.opacity=parseInt(temp+step)/100;
+                        element.style.filter="alpha(opacity="+parseInt(temp+step)+")";
+                    }else{
+                        if(step > 0 && Math.abs(xpos - final) < step){
+                            step = Math.abs(xpos - final);
+                        }
+                        if(xpos < final){
+                            xpos += step;
+                        }
+                        if(xpos > final){
+                            xpos -= step;
+                        }
+                        element.style[attr] = xpos+"px";
+                    }
             }
-            element.style[attr] = xpos + "px";
-            if(getStyle(element,attr)>=final_x)clearInterval(timer);
+            if(attr=="opacity"){
+                if(parseInt(getStyle(element,attr)*100)==final){
+                    clearInterval(timer);
+                }
+            }else{
+                if(parseInt(getStyle(element,attr))==final)clearInterval(timer);
+            }
         },interval);
     }
     return this;

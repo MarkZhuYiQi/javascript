@@ -81,9 +81,9 @@ function getInner(){
 //跨浏览器获取style
 function getStyle(element,attr){
     if(typeof window.getComputedStyle!="undefined"){    //W3C，计算后的CSS属性
-        return parseInt(window.getComputedStyle(element,null)[attr]);
-    }else if(typeof this.elements[i].currentStyle!="undefined"){    //IE
-        return parseInt(element.currentStyle[attr]);
+        return window.getComputedStyle(element,null)[attr];
+    }else if(typeof element.currentStyle!="undefined"){    //IE
+        return element.currentStyle[attr];
     }
 }
 //判断class是否存在
