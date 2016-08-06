@@ -148,7 +148,12 @@ function scrollTop(){
         document.body.scrollTop=0;
         document.documentElement.scrollTop=0;
 }
-
+function getScroll(){
+    return{
+        top : document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop,
+        left : document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft
+    }
+}
 
 //跨浏览器事件绑定,不需要标准化event了因为函数自带各自标准的event
 function addEvent(obj,type,func){
@@ -223,6 +228,30 @@ function removeEvent(obj,type,func){
         }
     }
 }
-
-
-
+//检查一个对象是否被包含另一个对象中
+function contains(parentNode,childNode){
+    if(parentNode.contains){
+        //父节点不等于子节点并且父节点包含该子节点
+        return parentNode !=childNode && parentNode.contains(childNode);
+    }else{
+        return !!(parentNode.compareDocumentPosition(childNode)&16);
+    }
+}
+//封装一个用于判断鼠标是否真的从外部移入对象或者移出对象的函数
+/**
+ * relatedTarget 事件属性返回与事件的目标节点相关的节点。
+    对于 mouseover 事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。document
+    对于 mouseout 事件来说，该属性是离开目标时，鼠标指针进入的节点。document
+ *  target就是this，就是目前鼠标存在的位置对象
+ */
+function checkHover(e,target){
+    if(getEvent(e).type=="mouseover"){
+        //移入时，离开的那个节点不能是目标的子节点并且离开的那个节点不能等于目标节点（确保是从外部移入节点而不是内部瞎转悠）
+        return !contains(target,getEvent(e).relatedTarget||getEvent(e).fromElement) &&
+        !((getEvent(e).relatedTarget||getEvent(e).fromElement)==target);
+    }else{
+        //移出时，鼠标进入的新节点不能是新节点子节点并且新节点不能等于目标节点
+        return !contains(target,getEvent(e).relatedTarget||getEvent(e).toElement) &&
+            !((getEvent(e).relatedTarget||getEvent(e).toElement)==target);
+    }
+}

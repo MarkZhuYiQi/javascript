@@ -22,3 +22,9 @@
     opacity:0.1;
     filter:alpha(opacity=10);
 }
+#line{
+    width:100px;
+    height:100px;
+    background-color:red;
+    opacity:1;
+}

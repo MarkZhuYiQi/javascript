@@ -5,11 +5,22 @@
 $(function(){
     //个人中心
     $("#header .member").hover(function(){
-        $(this).css("background","url(images/arrow2.png) no-repeat right center");
-        $("header .member_ul").show();
+        $("#header .member").css("background","url(images/arrow2.png) no-repeat right center");
+        $("header .member_ul").show().animation({
+            "attr":"o",
+            "final":100,
+            "speed":2
+        });
     },function(){
-        $(this).css("background","url(images/arrow.png) no-repeat right center");
-        $("header .member_ul").hide();
+        $("#header .member").css("background","url(images/arrow.png) no-repeat right center");
+        $("header .member_ul").animation({
+            "attr":"o",
+            "final":0,
+            "speed":2,
+            "fn":function(){
+                $("header .member_ul").hide();
+            }
+        });
     });
     //登录框
     var login=$("#login");
@@ -22,35 +33,60 @@ $(function(){
         }
     });
     $("#header .login").click(function(){
-        login.css("display","block");
         //锁屏遮罩
-        login.center(350,250);
-        screen.lock();
+        login.center(350,250).css("display","block");;
+        screen.lock().animation({
+            "attr":"o",
+            "final":80,
+            "speed":5
+        });
     });
+    //需要先渐变再关闭
     $("#login .close").click(function(){
         login.css("display","none");
         //解锁
-        screen.unlock();
+        screen.animation({
+            "attr":"o",
+            "final":0,
+            "speed":5,
+            "fn":function(){
+                screen.unlock();
+            }
+        });
     });
     //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
     // login.drag([$("h2").getElementBack(0)]);
     login.drag($("#login h2").first(),$(".other").first());
 
 //分享按钮初始化位置
-    $("#shared").css("top",(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");
+    $("#shared").css("top",getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");
+    $("#shared").resize(function(){
+        $("#shared").css("top",getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");
+    });
+    addEvent(window,"scroll",function(){
+        $("#shared").animation({
+            "final":getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2,
+            "target":getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2,
+            "attr":"y",
+            "speed":5
+        });
+    });
+
 //分享收缩效果
     $("#shared").hover(function(){
-        $(this).animation({
+        $("#shared").animation({
             "attr":"x",
             "final":0,
             "start":-211,
+            "speed":5,
             "effect":"gradient"
         });
     },function(){
-        $(this).animation({
+        $("#shared").animation({
             "attr":"x",
             "final":-211,
             "start":0,
+            "speed":5,
             "effect":"gradient"
         });
     });

@@ -56,3 +56,18 @@ $(function(){
     });
     //透明度
 */
+
+    $("#line").click(function(){
+        var _this=this;
+        $(this).animation({
+            mul:{
+                width:400,
+                height:500,
+                opacity:60
+            },
+            fn:function(){
+                alert(1);
+            }
+        });
+
+    });
