@@ -59,8 +59,41 @@ $(function(){
         });
     });
     //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
-    // login.drag([$("h2").getElementBack(0)]);
     login.drag($("#login h2").first(),$(".other").first());
+
+    //注册框
+    var reg=$("#reg");
+    //想要实现改变大小，控件不出视野范围，就要使用连缀，否则获取不到elements里面没有login控件，无法控制！！！！！
+    login.center(600,550).resize(function(){
+        // login.center(350,250);   //窗口改变大小，控件始终居中
+        if(reg.css("display")=="block"){  //如果注册框显示才锁屏
+            screen.lock();
+        }
+    });
+    $("#header .reg").click(function(){
+        //锁屏遮罩
+        reg.center(600,550).css("display","block");;
+        screen.lock().animation({
+            "attr":"o",
+            "final":80,
+            "speed":5
+        });
+    });
+    //需要先渐变再关闭
+    $("#reg .close").click(function(){
+        reg.css("display","none");
+        //解锁
+        screen.animation({
+            "attr":"o",
+            "final":0,
+            "speed":5,
+            "fn":function(){
+                screen.unlock();
+            }
+        });
+    });
+    //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
+    reg.drag($("#reg h2").first());
 
 //分享按钮初始化位置
     $("#shared").css("top",getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");

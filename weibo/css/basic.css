@@ -71,7 +71,7 @@ body{
 .member_ul li{
     list-style:none;
 }
-#header .login{
+#header .login,#header .reg{
     float:right;
     width:35px;
     height:30px;
@@ -137,6 +137,67 @@ body{
     color:#999;
     font-size:12px;
 }
+#reg{
+    width:600px;
+    height:550px;
+    border:1px solid #ccc;
+    position:absolute;
+    display:none;
+    z-index:9999;
+    background:#fff;
+}
+#reg h2{
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:1px;
+}
+#reg h2 img{
+    float:right;
+    position:relative;
+    top:14px;
+    right:8px;
+    cursor:pointer;
+}
+#reg dl{
+    margin:20px;
+    padding:0 0 20px 0;
+    font-size:14px;
+    color:#666;
+    padding:0 0 0 10px;
+}
+#reg dl dd{
+    height:30px;
+    padding:5px 0;
+}
+#reg dl dd input.text,#reg dl dd select{
+    width:200px;
+    height:25px;
+    border:1px solid #ccc;
+    background:#fff;
+    font-size:14px;
+    color:#666;
+}
+#reg dl dd.birthday select{
+    width:100px;
+}
+#reg dl dd textarea{
+    width:360px;
+    height:100px;
+    background:#fff;
+    border:1px solid #ccc;
+    resize: none;
+}
+#reg dl dd input.submit{
+    width:143px;
+    height:33px;
+    background:url(../images/reg.png) no-repeat;
+    border:none;
+    cursor:pointer;
+
+}
+
 #nav{
     width:465px;
     height:52px;
@@ -199,7 +260,7 @@ body{
 
 }
 #sidebar h2{
-    width:250px;
+    width:248px;
     height:30px;
     line-height:30px;
     font-size:14px;

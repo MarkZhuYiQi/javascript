@@ -16,11 +16,44 @@
                 <li><a href="">退出</a></li>
             </ul>
         </div>
-        <div class="login">
-            登录
-        </div>
+        <div class="reg">注册</div>
+        <div class="login">登录</div>
     </div>
-
+    <div id="reg">
+        <h2><img src="images/close.png" alt="" class="close">会员注册</h2>
+        <form action="" name="reg">
+            <dl>
+                <dd>用 户 名：<input type="text" name="user" class="text"></dd>
+                <dd>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pass" class="text" /></dd>
+                <dd>确认密码：<input type="password" name="notpass" class="text" /></dd>
+                <dd>
+                    <span style="vertical-align:-2px;">提&nbsp;&nbsp;&nbsp;&nbsp;问：</span>
+                    <select name="ques" id="">
+                        <option value="0">---请选择---</option>
+                        <option value="1">您最喜欢吃的菜</option>
+                        <option value="1">您狗狗的名字</option>
+                        <option value="1">您的出生地</option>
+                        <option value="1">您最喜欢的明星</option>
+                    </select>
+                </dd>
+                <dd>回&nbsp;&nbsp;&nbsp;&nbsp;答：<input type="text" name="ans" class="text" /></dd>
+                <dd>电子邮件：<input type="text" name="email" class="text" /></dd>
+                <dd class="birthday"><span style="vertical-align:-2px;">生&nbsp;&nbsp;&nbsp;&nbsp;日：</span>
+                    <select name="year">
+                        <option value="0">- 请选择 -</option>
+                    </select> 年
+                    <select name="month">
+                        <option value="0">- 请选择 -</option>
+                    </select> 月
+                    <select name="day">
+                        <option value="0">- 请选择 -</option>
+                    </select> 日 </dd>
+                <dd style="height:105px;"><span style="vertical-align:85px;">备 注： </span><textarea name="ps" class=""></textarea></dd>
+                <dd style="padding:0 0 0 320px;">还能输入 200 字</dd>
+                <dd style="padding:0 0 0 80px;"><input type="button" value="" class="submit" /></dd>
+            </dl>
+        </form>
+    </div>
     <div id="login">
         <h2 id="title"><img src="images/close.png" class="close" alt="">网站登录</h2>
         <div class="user">账号:
