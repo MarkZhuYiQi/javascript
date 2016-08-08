@@ -7,16 +7,20 @@ $(function(){
     $("#header .member").hover(function(){
         $("#header .member").css("background","url(images/arrow2.png) no-repeat right center");
         $("header .member_ul").show().animation({
-            "attr":"o",
-            "final":100,
-            "speed":2
+            "speed":5,
+            mul:{
+                o:100,
+                h:110
+            }
         });
     },function(){
         $("#header .member").css("background","url(images/arrow.png) no-repeat right center");
         $("header .member_ul").animation({
-            "attr":"o",
-            "final":0,
-            "speed":2,
+            "speed":5,
+            mul:{
+                o:0,
+                h:0
+            },
             "fn":function(){
                 $("header .member_ul").hide();
             }
@@ -90,5 +94,50 @@ $(function(){
             "effect":"gradient"
         });
     });
+    //滑动导航,鼠标触发事件默认在最表层
+    $("#nav .about li").hover(function(){
+        var target=$(this).first().offsetLeft+20;
+        $("#nav .nav_bg").animation({
+            speed:5,
+            attr:"x",
+            final:target,
+            fn:function(){
+                $("#nav .white").animation({
+                    attr:"x",
+                    final:-target+20
+                });
+            }
+        })
+    },function(){
+        var target=$(this).first().offsetLeft+20;
+        $("#nav .nav_bg").animation({
+            speed:5,
+            attr:"x",
+            final:20,
+            fn:function(){
+                $("#nav .white").animation({
+                    attr:"x",
+                    final:0
+                });
+            }
+        })
+    });
+    //左侧菜单
+    $("#sidebar h2").toggle(function(){
+        $(this).next().animation({
+            mul:{
+                h:0,
+                o:0
+            }
+        });
+    },function(){
+        $(this).next().animation({
+            mul:{
+                h:150,
+                o:100
+            }
+        });
+    })
+
 });
 

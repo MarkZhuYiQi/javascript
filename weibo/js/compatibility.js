@@ -157,7 +157,7 @@ function getScroll(){
 
 //跨浏览器事件绑定,不需要标准化event了因为函数自带各自标准的event
 function addEvent(obj,type,func){
-    if(typeof obj.addEventListener!="undefined"){   //W3C
+    if(typeof obj.addEventListener != "undefined"){   //W3C
         obj.addEventListener(type,func,false);  //捕获不需要,false
         /*
          }else if(typeof obj.attachEvent!="undefined"){

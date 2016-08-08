@@ -2,8 +2,6 @@
  * Created by SZL4ZSY on 8/1/2016.
  */
 
-
-
 //每次调用的时候都是新建一个对象
 var $=function(args){
     return new Base(args);
@@ -120,6 +118,24 @@ Base.prototype.getElementBack=function(num){
 //获取首个节点，并返回这个节点对象
 Base.prototype.first=function(){
     return this.elements[0];
+};
+//获取当前层面上的下一个节点
+Base.prototype.next=function(){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i]=this.elements[i].nextSibling;
+        if(this.elements[i]==null)throw new Error("could not find the next Sibling");
+        if(this.elements[i].nodeType==3)this.next();    //如果是空白文本节点，就递归
+    }
+    return this;
+};
+//获取当前层面上的上一个节点
+Base.prototype.prev=function(){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i]=this.elements[i].previousSibling;
+        if(this.elements[i]==null)throw new Error("could not find the previous Sibling");
+        if(this.elements[i].nodeType==3)this.prev();    //如果是空白文本节点，就递归
+    }
+    return this;
 };
 //获取最后以个节点，并返回这个节点对象
 Base.prototype.last=function(){
@@ -255,17 +271,34 @@ Base.prototype.hover=function(over,out){
         this.elements[i].onmouseout=out;
 */
         //现代方法绑定函数
-        // addEvent(this.elements[i],"mouseover",over);
         addEvent(this.elements[i],"mouseover",function(e){
-            if(checkHover(e,this))over();
+            if(checkHover(e,this)){
+                over.call(this);
+            }
         });
-        // addEvent(this.elements[i],"mouseout",out);
         addEvent(this.elements[i],"mouseout",function(e){
-            if(checkHover(e,this))out();
+            if(checkHover(e,this)){
+                out.call(this);     //闭包函数,.call(this)，对象冒充，导入当前作用域即this.elements[i]
+            }
         });
     }
     return this;
 };
+//设置点击切换
+Base.prototype.toggle=function(){
+    for(var i=0;i<this.elements.length;i++){
+        (function(element,args){    //这个函数也是为了解决计数器问题
+            var count=0;
+            addEvent(element,"click",function(){
+                args[count++ % args.length].call(this);
+            });
+        })(this.elements[i],arguments);
+    }
+    return this;
+};
+
+
+
 //设置显示
 Base.prototype.show=function(){
     for(var i=0;i<this.elements.length;i++){
@@ -478,12 +511,11 @@ Base.prototype.animation=function(obj){
             element.style.opacity=parseInt(start)/100;
             element.style.filter="alpha(opacity="+parseInt(start)+")";
         }else{
-            element.style[attr]=start+"px";     //每次点击都从start处开始
+            // element.style[attr]=start+"px";     //每次点击都从start处开始
         }
         if(mul==undefined){
             mul={};
             mul[attr]=final;
-            mul[step]={};
         };
         var stepLength={};      //用来存储同步动画时不同动画的不同步长
 
@@ -498,8 +530,7 @@ Base.prototype.animation=function(obj){
                             "left";
                 final=mul[i];
                 if(effect=="gradient"){
-                    console.log(parseInt(final,10));
-                    stepLength[i]=attr == "opacity" ? (final - (getStyle(element,attr)) * 100) / speed :
+                    stepLength[i]=attr == "opacity" ? (final - parseFloat(getStyle(element,attr)) * 100) / speed :
                     (final-parseInt(getStyle(element,attr)))/speed;
                     stepLength[i] = stepLength[i] > 0 ? Math.ceil(stepLength[i]) : Math.floor(stepLength[i]);
                 }
@@ -557,4 +588,5 @@ Base.prototype.animation=function(obj){
     }
     return this;
 };
+
 

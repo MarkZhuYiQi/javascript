@@ -19,8 +19,6 @@
     top:100px;
     left:400px;
     background:red;
-    opacity:0.1;
-    filter:alpha(opacity=10);
 }
 #line{
     width:100px;
