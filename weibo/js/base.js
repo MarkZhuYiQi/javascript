@@ -115,6 +115,11 @@ Base.prototype.getElement=function(num){
 Base.prototype.getElementBack=function(num){
     return this.elements[num];
 };
+//获得某组节点的数量
+Base.prototype.length=function(){
+    return this.elements.length;
+};
+
 //获取首个节点，并返回这个节点对象
 Base.prototype.first=function(){
     return this.elements[0];
@@ -346,8 +351,16 @@ Base.prototype.bind=function(event,func){
     }
     return this;
 };
-
-
+//设置innerText
+Base.prototype.text=function(str){
+    for(var i=0;i<this.elements.length;i++){
+        if(arguments.length==0){
+            return getText(this.elements[i],str);
+        }
+        setText(this.elements[i],str);
+    }
+    return this;
+};
 //触发浏览器窗口改变事件
 Base.prototype.resize=function(func){
     for(var i=0;i<this.elements.length;i++) {

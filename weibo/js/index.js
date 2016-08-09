@@ -224,7 +224,7 @@ $(function(){
 
 
 
-    //封装成函数
+    //密码验证封装成函数
     function check_pass(_this){
         var value=trim($(_this).value());
         var value_length=value.length;
@@ -350,30 +350,52 @@ $(function(){
         }
     });
     //电子邮件键入
-    $("form").form("email").bind("keyup",function(){
+    $("form").form("email").bind("keyup",function(event){
         if($(this).value().indexOf("@")==-1) {
             $("#reg .all_email").css("display","block");
             $("#reg .all_email li span").html($(this).value());
         }else{
             $("#reg .all_email").css("display","none");
         }
+        var length=$("#reg .all_email li").length();
+        if(event.keyCode==40){
+            //表示按方向键下
+            // alert(length);
+            if(this.index==undefined ||this.index>=length-1){
+                this.index=0;
+            }else{
+                this.index++;
+            }
+            $("#reg .all_email li").css("background","#fff");
+            $("#reg .all_email li").css("color","#666");
+            $("#reg .all_email li").getElement(this.index).css("background","#e5edf2");
+            $("#reg .all_email li").getElement(this.index).css("color","#369");
+        }
+        if(event.keyCode==38){
+            //表示按方向键下
+            // alert(length);
+            if(this.index==undefined ||this.index<=0){
+                this.index=length-1;
+            }else{
+                this.index--;
+            }
+            $("#reg .all_email li").css("background","#fff");
+            $("#reg .all_email li").css("color","#666");
+            $("#reg .all_email li").getElement(this.index).css("background","#e5edf2");
+            $("#reg .all_email li").getElement(this.index).css("color","#369");
+        }
+        if(event.keyCode==13){
+            $(this).value($("#reg .all_email li").getElement(this.index).text());
+            $("#reg .all_email").css("display","none");
+            this.index=undefined;
+        }
+
+
     });
     //电子邮件点击获取
-
-
-
-
-
     $("#reg .all_email li").bind("mousedown",function(){
-        alert($(this).first().textContent);innerText
+        $("form").form("email").value($(this).text());
     });
-
-
-
-
-
-
-
 
     //电子邮件补全系统
     $("#reg .all_email li").hover(function(){

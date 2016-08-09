@@ -255,3 +255,17 @@ function checkHover(e,target){
             !((getEvent(e).relatedTarget||getEvent(e).toElement)==target);
     }
 }
+//跨浏览器获取text
+function getText(element,text){
+    return (typeof element.textContent=="string")?element.textContent:element.innerText;
+}
+//跨浏览器设置text
+function setText(element,text){
+    (typeof element.textContent=="string")?element.textContent=text:element.innerText=text;
+}
+
+
+
+
+
+
