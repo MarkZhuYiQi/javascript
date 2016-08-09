@@ -23,9 +23,39 @@
         <h2><img src="images/close.png" alt="" class="close">会员注册</h2>
         <form action="" name="reg">
             <dl>
-                <dd>用 户 名：<input type="text" name="user" class="text"></dd>
-                <dd>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pass" class="text" /></dd>
-                <dd>确认密码：<input type="password" name="notpass" class="text" /></dd>
+                <dd>
+                    用 户 名：
+                    <input type="text" name="user" class="text">
+                    <span class="info info_user">请输入用户名，2-20位，由字母数字下划线组成</span>
+                    <span class="error error_user">输入不合法！</span>
+                    <span class="succ succ_user">用户名可用</span>
+                </dd>
+                <dd>
+                    密&nbsp;&nbsp;&nbsp;&nbsp;码：
+                    <input type="text" name="pass" class="text" />
+                    <span class="info info_pass">
+                        <p>
+                            安全级别：
+                            <strong class="s s1">■</strong>
+                            <strong class="s s2">■</strong>
+                            <strong class="s s3">■</strong>
+                            <strong class="s s4" style="font-weight:normal"></strong>
+                        </p>
+                        <p><strong class="q q1" style="font-weight:normal">○</strong>6-20个字符</p>
+                        <p><strong class="q q2" style="font-weight:normal">○</strong>只能包含大小写字母、数字和非空格字符</p>
+                        <p><strong class="q q3" style="font-weight:normal">○</strong>大小写字母、数字、非空字符，2种以上</p>
+                    </span>
+                    <span class="error error_pass">输入不合法！</span>
+                    <span class="succ succ_pass">密码可用</span>
+                </dd>
+                <dd>
+                    确认密码：
+                    <input type="password" name="notpass" class="text" />
+
+                    <span class="info info_notpass">请在一次输入相同的密码</span>
+                    <span class="error error_notpass">两次密码输入不一致！</span>
+                    <span class="succ succ_notpass">密码可用</span>
+                </dd>
                 <dd>
                     <span style="vertical-align:-2px;">提&nbsp;&nbsp;&nbsp;&nbsp;问：</span>
                     <select name="ques" id="">
@@ -36,8 +66,27 @@
                         <option value="1">您最喜欢的明星</option>
                     </select>
                 </dd>
-                <dd>回&nbsp;&nbsp;&nbsp;&nbsp;答：<input type="text" name="ans" class="text" /></dd>
-                <dd>电子邮件：<input type="text" name="email" class="text" /></dd>
+                <dd>
+                    回&nbsp;&nbsp;&nbsp;&nbsp;答：
+                    <input type="text" name="ans" class="text" />
+                    <span class="info info_ans">请输入回答，2-32位</span>
+                    <span class="error error_ans">回答不合法，请重新输入！</span>
+                    <span class="succ succ_ans">回答可用</span>
+                </dd>
+                <dd>
+                    电子邮件：
+                    <input type="text" name="email" class="text" autocomplete="off" />
+                    <span class="info info_email">请输入电子邮件</span>
+                    <span class="error error_email">邮件地址不合法！</span>
+                    <span class="succ succ_email">地址可用</span>
+                    <ul class="all_email">
+                        <li><span></span>@qq.com</li>
+                        <li><span></span>@163.com</li>
+                        <li><span></span>@126.com</li>
+                        <li><span></span>@gmail.com</li>
+                        <li><span></span>@sina.com</li>
+                    </ul>
+                </dd>
                 <dd class="birthday"><span style="vertical-align:-2px;">生&nbsp;&nbsp;&nbsp;&nbsp;日：</span>
                     <select name="year">
                         <option value="0">- 请选择 -</option>

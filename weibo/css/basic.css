@@ -1,4 +1,7 @@
-body,h1,h2,h3,h4,h5,h6,ul{
+html{
+    font-family: SimHei;
+}
+body,h1,h2,h3,h4,h5,h6,ul,p,form{
     margin:0;
     padding:0;
 }
@@ -142,7 +145,7 @@ body{
     height:550px;
     border:1px solid #ccc;
     position:absolute;
-    display:none;
+    /*display:none;*/
     z-index:9999;
     background:#fff;
 }
@@ -166,6 +169,8 @@ body{
     font-size:14px;
     color:#666;
     padding:0 0 0 10px;
+    position:relative;
+
 }
 #reg dl dd{
     height:30px;
@@ -197,7 +202,148 @@ body{
     cursor:pointer;
 
 }
+#reg dl dd .info,#reg dl dd .error,#reg dl dd .succ{
+    display:block;
+    position:absolute;
+    letter-spacing:1px;
+    padding:0 0 0 35px;
+    color:#333;
+    font-size:12px;
+    width:165px;
+    height:32px;
+    line-height:32px;
+    display:none;
 
+}
+#reg dl dd .info{
+    background:url(../images/reg_info.png)no-repeat;
+}
+#reg dl dd .error{
+    background:url(../images/reg_error.png)no-repeat;
+}
+#reg dl dd .succ{
+    height:14px;
+    line-height:14px;
+    background:url(../images/reg_succ.png)no-repeat;
+    padding:0 0 0 20px;
+    color:green;
+}
+#reg dl dd .info_user{
+    top:3px;
+    left:320px;
+    padding-top:7px;
+    height:43px;
+    line-height:18px;
+    background:url(../images/reg_info2.png)no-repeat;
+}
+#reg dl dd .error_user{
+    top:3px;
+    left:320px;
+}
+#reg dl dd .succ_user{
+    top:12px;
+    left:320px;
+}
+#reg dl dd .info_pass{
+    top:5px;
+    left:320px;
+    padding:4px 0 0 16px;
+    height:102px;
+    line-height:0px;
+    width:244px;
+    background:url(../images/reg_info3.png)no-repeat;
+    letter-spacing:0;
+    box-shadow: 1px 1px 1px #ccc;
+}
+#reg dl dd .info_pass p{
+    height:25px;
+    line-height:25px;
+    color:#666;
+}
+#reg dl dd .info_pass p strong.s{
+    color:#ccc;
+    font-size:20px;
+}
+#reg dl dd .info_pass .q{
+    font-size:20px;
+}
+#reg dl dd .error_pass{
+    top:43px;
+    left:320px;
+}
+#reg dl dd .succ_pass{
+    top:52px;
+    left:320px;
+}
+#reg dl dd .info_notpass{
+    top:84px;
+    left:325px;
+    padding-top:7px;
+    height:43px;
+    line-height:18px;
+    background:url(../images/reg_info.png)no-repeat;
+}
+#reg dl dd .error_notpass{
+    top:84px;
+    left:325px;
+}
+#reg dl dd .succ_notpass{
+    top:92px;
+    left:325px;
+}
+#reg dl dd .info_ans{
+    top:164px;
+    left:320px;
+    padding-top:7px;
+    height:43px;
+    line-height:18px;
+    background:url(../images/reg_info.png)no-repeat;
+}
+#reg dl dd .error_ans{
+    top:164px;
+    left:320px;
+}
+#reg dl dd .succ_ans{
+    top:170px;
+    left:325px;
+}
+#reg dl dd .info_email{
+    top:204px;
+    left:325px;
+    padding-top:7px;
+    height:43px;
+    line-height:18px;
+    background:url(../images/reg_info.png)no-repeat;
+}
+#reg dl dd .error_email{
+    top:204px;
+    left:325px;
+}
+#reg dl dd .succ_email{
+    top:212px;
+    left:325px;
+}
+#reg dl dd ul.all_email{
+    width:180px;
+    height:130px;
+    position:absolute;
+    background:#fff;
+    padding:5px 10px;
+    top:233px;
+    left:127px;
+    border:1px solid #ccc;
+    display:none;
+}
+#reg dl dd ul.all_email li{
+    height:25px;
+    line-height:25px;
+    border-bottom:1px solid #e5edf2;
+    padding:0 5px;
+    cursor:pointer;
+}
+#reg dl dd ul.all_email li:hover{
+    background:#eee;
+}
 #nav{
     width:465px;
     height:52px;

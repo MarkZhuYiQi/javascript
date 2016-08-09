@@ -97,8 +97,8 @@ Base.prototype.getClass=function(className,parentNode){
     }
     var all=node.getElementsByTagName("*"); //获得所有元素节点
     for(var i=0;i<all.length;i++){
-        if(all[i].className==className){
-            // this.elements.push(all[i]);     //这里已经写死了
+        // if(all[i].className==className){
+        if(new RegExp("(\\s|^)"+className+"(\\s|$)").test(all[i].className)){
             temps.push(all[i]);     //将符合条件的节点放入临时数组
         }
     }
@@ -210,8 +210,23 @@ Base.prototype.find=function(str){
     this.elements=childElements;    //把循环出来的目标及节点全部交给elements，这样就可以操作了
     return this;
 };
-
-
+//设置表单字段元素
+Base.prototype.form=function(name){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i]=this.elements[i][name];    //这里变成了目标输入框对象
+    }
+    return this;
+};
+//设置表单字段内容获取
+Base.prototype.value=function(str){
+    for(var i=0;i<this.elements.length;i++){
+        if(arguments.length==0){        //如果自身参数为0
+            return this.elements[i].value;
+        }
+        this.elements[i].value=str;    //用数组方式
+    }
+    return this;
+};
 
 //设置innerHTML
 Base.prototype.html=function(str){
@@ -323,6 +338,16 @@ Base.prototype.center=function(width,height){
     }
     return this;        //fuck！！！不返回就无法连缀就会报错！
 };
+
+//设置事件发生器
+Base.prototype.bind=function(event,func){
+    for(var i=0;i<this.elements.length;i++){
+        addEvent(this.elements[i],event,func);
+    }
+    return this;
+};
+
+
 //触发浏览器窗口改变事件
 Base.prototype.resize=function(func){
     for(var i=0;i<this.elements.length;i++) {
