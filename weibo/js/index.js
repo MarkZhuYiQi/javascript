@@ -566,20 +566,64 @@ $(function(){
 
 
     //轮播器初始化
-    $("#banner img").css("display","none");
-    $("#banner img").getElement(0).css("display","block");
+    // $("#banner img").css("display","none");
+    // $("#banner img").getElement(0).css("display","block");
+    $("#banner img").opacity(0);
+    $("#banner img").getElement(0).opacity(100);
     $("#banner ul li").getElement(0).css("color","#333");
     $("#banner strong").html($("#banner img").getElement(0).attr("alt"));
     // alert($("#banner img").getElement(0).first().alt);  //getElement返回的是this，无法获得目标对象，所以要用first（）
 
+    //自动循环轮播器
+    //轮播器计数器
+    var banner_index=1;
+    //轮播器种类
+    var banner_type=2;  //1表示透明度，2表示上下滚动
+    var banner_timer=setInterval(banner_fn,1000);
+
+
     //手动轮播器
     $("#banner ul li").hover(function(){
-        $("#banner img").css("display","none");
-        $("#banner img").getElement($(this).index()).css("display","block");
-        $("#banner ul li").css("color","#999");
-        $("#banner ul li").getElement($(this).index()).css("color","#333");
-        $("#banner strong").html($("#banner img").getElement($(this).index()).attr("alt"));
-    },function(){});
+        clearInterval(banner_timer);
+        if($(this).css("color")!="rgb(51,51,51)"||$(this).css("color")!="#333") {
+            banner(this, banner_index == 0 ? $("#banner ul li").length() - 1 : banner_index - 1);
+        }
+    },function(){
+        banner_index=$(this).index()+1;
+        setInterval(banner_fn,1000);
+    });
 
+    function banner(obj,prev){
+        // $("#banner img").css("display","none");
+        // $("#banner img").getElement($(obj).index()).css("display","block");
+        $("#banner ul li").css("color","#999");
+        $(obj).css("color","#333");
+        $("#banner strong").html($("#banner img").getElement($(obj).index()).attr("alt"));
+        if(banner_type==1) {
+            $("#banner img").getElement(prev).animation({
+                attr: "o",
+                final: 0
+            }).css("z-index", 1);
+            $("#banner img").getElement($(obj).index()).animation({
+                attr: "o",
+                final: 100
+            }).css("z-index", 2);
+        }else if(banner_type==2){
+            $("#banner img").getElement(prev).animation({
+                attr: "y",
+                final: 150
+            }).css("z-index", 1).opacity(100);
+            $("#banner img").getElement($(obj).index()).animation({
+                attr: "y",
+                final: 0
+            }).css("top","-150px").css("z-index", 2).opacity(100);
+        }
+    }
+    function banner_fn(){
+        if(banner_index>=$("#banner ul li").length())banner_index=0;
+        // banner($("#banner ul li").getElement(banner_index)); //这里面传过去的base对象
+        banner($("#banner ul li").getElement(banner_index).first(),banner_index==0?$("#banner ul li").length()-1:banner_index-1);    //这是LI对象本体
+        banner_index++;
+    }
 });
 

@@ -135,6 +135,15 @@ Base.prototype.index=function(){
         if(this.elements[0]==children[i])return i;  //将目标对象和所有同级节点对比，得到相同就返回索引
     }
 };
+//跨浏览器兼容节点透明度
+Base.prototype.opacity=function(num){
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i].style.opacity=num/100;
+        this.elements[i].style.filter="alpha(opacity="+num+")";
+    }
+    return this;
+};
+
 //获取当前层面上的下一个节点
 Base.prototype.next=function(){
     for(var i=0;i<this.elements.length;i++){
