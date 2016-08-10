@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7270da41-9550-4e7d-b741-1ea2961e09d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/banner1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/banner2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/banner3.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/css/basic.css" afterPath="$PROJECT_DIR$/weibo/css/basic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/index.html" afterPath="$PROJECT_DIR$/weibo/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/base.js" afterPath="$PROJECT_DIR$/weibo/js/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/compatibility.js" afterPath="$PROJECT_DIR$/weibo/js/compatibility.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/index.js" afterPath="$PROJECT_DIR$/weibo/js/index.js" />
     </list>
     <ignored path="javascript.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,8 +46,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="189" column="25" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
+            <state relative-caret-position="748">
+              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#dd#7;n#dl#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#dd#8;n#dl#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -385,7 +377,7 @@
       <workItem from="1470658324704" duration="8341000" />
       <workItem from="1470706437071" duration="26861000" />
       <workItem from="1470745098239" duration="7834000" />
-      <workItem from="1470792024705" duration="25366000" />
+      <workItem from="1470792024705" duration="25420000" />
     </task>
     <task id="LOCAL-00001" summary="learning">
       <created>1469361647814</created>
@@ -408,11 +400,18 @@
       <option name="project" value="LOCAL" />
       <updated>1469953334315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="learning">
+      <created>1470823050006</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1470823050006</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="552137000" />
+    <option name="totallyTimeSpent" value="552191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -801,8 +800,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="189" column="25" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
+        <state relative-caret-position="748">
+          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#span#0;n#dd#7;n#dl#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#dd#8;n#dl#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
