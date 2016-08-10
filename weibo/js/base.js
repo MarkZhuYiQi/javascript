@@ -119,10 +119,21 @@ Base.prototype.getElementBack=function(num){
 Base.prototype.length=function(){
     return this.elements.length;
 };
-
+//获取某一节点的属性
+Base.prototype.attr=function(attr){
+    return this.elements[0][attr];
+}
 //获取首个节点，并返回这个节点对象
 Base.prototype.first=function(){
     return this.elements[0];
+};
+//获取节点在节点组中的索引值
+Base.prototype.index=function(){
+    //获取父节点下所有子节点，注意children和childNodes的区别，children会忽略空白节点，即文本节点，而childNodes会收集所有节点
+    var children=this.elements[0].parentNode.children;
+    for(var i=0;i<children.length;i++){
+        if(this.elements[0]==children[i])return i;  //将目标对象和所有同级节点对比，得到相同就返回索引
+    }
 };
 //获取当前层面上的下一个节点
 Base.prototype.next=function(){
@@ -218,7 +229,7 @@ Base.prototype.find=function(str){
 //设置表单字段元素
 Base.prototype.form=function(name){
     for(var i=0;i<this.elements.length;i++){
-        this.elements[i]=this.elements[i][name];    //这里变成了目标输入框对象
+        this.elements[i]=this.elements[i][name];    //这里变成了目标对象，可以直接获得各种属性了
     }
     return this;
 };

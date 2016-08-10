@@ -145,7 +145,7 @@ body{
     height:550px;
     border:1px solid #ccc;
     position:absolute;
-    /*display:none;*/
+    display:none;
     z-index:9999;
     background:#fff;
 }
@@ -184,8 +184,9 @@ body{
     font-size:14px;
     color:#666;
 }
+
 #reg dl dd.birthday select{
-    width:100px;
+    width:70px;
 }
 #reg dl dd textarea{
     width:360px;
@@ -193,6 +194,16 @@ body{
     background:#fff;
     border:1px solid #ccc;
     resize: none;
+}
+#reg dl dd.ps{
+    padding:0 0 0 300px;
+}
+#reg dl dd strong.num{
+    padding:0 2px;
+}
+#reg dl dd span.clear{
+    cursor:pointer;
+    color:#06f;
 }
 #reg dl dd input.submit{
     width:143px;
@@ -224,7 +235,7 @@ body{
 #reg dl dd .succ{
     height:14px;
     line-height:14px;
-    background:url(../images/reg_succ.png)no-repeat;`
+    background:url(../images/reg_succ.png)no-repeat;
     padding:0 0 0 20px;
     color:green;
 }
@@ -291,6 +302,10 @@ body{
     top:92px;
     left:340px;
 }
+#reg dl dd .error_ques{
+    top:124px;
+    left:340px;
+}
 #reg dl dd .info_ans{
     top:164px;
     left:340px;
@@ -343,6 +358,11 @@ body{
 }
 #reg dl dd ul.all_email li:hover{
     background:#eee;
+}
+#reg dl dd .error_birth{
+    top:244px;
+    left:380px;
+    /*display:block;*/
 }
 #nav{
     width:465px;
@@ -571,4 +591,57 @@ body{
     color:#666;
     text-indent:15px;
     background:url("../images/share_bg.png") no-repeat 0 -472px;
+}
+
+#index{
+    width:630px;
+    height:570px;
+    background:#eee;
+    float:right;
+}
+#banner{
+    width:900px;
+    height:300px;
+    float:left;
+    margin:10px 0;
+    position:relative;
+}
+#banner img{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+}
+#banner ul{
+    position:absolute;
+    top:128px;
+    left: 420px;
+    z-index:4;
+}
+#banner ul li{
+    float:left;
+    padding:0 5px;
+    color:#999;
+    cursor:pointer;
+    font-size:16px;
+    cursor:pointer;
+}
+#banner span{
+    position:absolute;
+    top:125px;
+    left:0;
+    width:900px;
+    height:25px;
+    background:#333;
+    opacity:0.3;
+    filter:alpha(opacity=30);
+    z-index:3;
+}
+#banner strong{
+    position:absolute;
+    top:130px;
+    left:10px;
+    color:#fff;
+    z-index:4;
 }

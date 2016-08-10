@@ -173,9 +173,14 @@ $(function(){
         });
     });
 
+    //初始化操作，刷新表单重置所有内容
+    $("form").first().reset();
+
+
     //鼠标验证,获得form元素节点，把输入框name付给form方法，
     // 方法将user对象给form，但是返回的是base对象，还需要用first返回对象（其实里面就一个对象）
     // $("form").form("user").value("888");
+    // 用户名验证
     $("form").form("user").bind("focus",function(){
         $("#reg .info_user").css("display","block");
         $("#reg .error_user").css("display","none");
@@ -185,7 +190,7 @@ $(function(){
             $("#reg .info_user").css("display","none");
             $("#reg .error_user").css("display","none");
             $("#reg .succ_user").css("display","none");
-        }else if(!/[\w]{2,20}/.test(trim($(this).value()))){
+        }else if(!check_user()){
             $("#reg .info_user").css("display","none");
             $("#reg .error_user").css("display","block");
             $("#reg .succ_user").css("display","none");
@@ -195,6 +200,10 @@ $(function(){
             $("#reg .succ_user").css("display","block");
         }
     });
+    function check_user(){
+        if(/[\w]{2,20}/.test(trim($("form").form("user").value())))return true;
+    }
+
     // alert($("#reg .info_user").first());
     //密码验证
     $("form").form("pass").bind("focus",function(){
@@ -205,7 +214,7 @@ $(function(){
         if(trim($(this).value())=="") {
             $("#reg .info_pass").css("display", "none");
         }else{
-            if(check_pass(this)){
+            if(check_pass()){
                 $("#reg .info_pass").css("display","none");
                 $("#reg .error_pass").css("display","none");
                 $("#reg .succ_pass").css("display","block");
@@ -219,14 +228,14 @@ $(function(){
 
     //密码强度验证
     $("form").form("pass").bind("keyup",function(){
-        check_pass(this);
+        check_pass();
     });
 
 
 
     //密码验证封装成函数
-    function check_pass(_this){
-        var value=trim($(_this).value());
+    function check_pass(){
+        var value=trim($("form").form("pass").value());
         var value_length=value.length;
         var code_length=0;
         var flag=false;
@@ -293,7 +302,7 @@ $(function(){
     }).bind("blur",function(){
         if(trim($(this).value())==""){
             $("#reg .info_notpass").css("display","none");
-        }else if(trim($("form").form("pass").value())==trim($("form").form("notpass").value())){
+        }else if(check_notpass()){
             $("#reg .info_notpass").css("display","none");
             $("#reg .error_notpass").css("display","none");
             $("#reg .succ_notpass").css("display","block");
@@ -303,6 +312,18 @@ $(function(){
             $("#reg .succ_notpass").css("display","none");
         }
     });
+    function check_notpass(){
+        if(trim($("form").form("pass").value())==trim($("form").form("notpass").value())){
+            return true;
+        }
+    }
+    $("form").form("ques").bind("change",function(){
+        if(check_ques())$("#reg .error_ques").css("display","none");
+    });
+    function check_ques(){
+        if($("form").form("ques").value()!=0)return true;
+    }
+
     //确认回答
     $("form").form("ans").bind("focus",function(){
         $("#reg .info_ans").css("display","block");
@@ -311,7 +332,7 @@ $(function(){
     }).bind("blur",function(){
         if(trim($(this).value())==""){
             $("#reg .info_ans").css("display","none");
-        }else if(trim($("form").form("ans").value()).length>=2 && trim($("form").form("ans").value()).length<=32){
+        }else if(check_ans()){
             $("#reg .info_ans").css("display","none");
             $("#reg .error_ans").css("display","none");
             $("#reg .succ_ans").css("display","block");
@@ -321,6 +342,14 @@ $(function(){
             $("#reg .succ_ans").css("display","none");
         }
     });
+    function check_ans(){
+        if(trim($("form").form("ans").value()).length>=2 && trim($("form").form("ans").value()).length<=32){
+            return true;
+        }
+    }
+
+
+
     //确认电子邮件
     $("form").form("email").bind("focus",function(){
         //补全界面
@@ -339,7 +368,7 @@ $(function(){
 
         if(trim($(this).value())==""){
             $("#reg .info_email").css("display","none");
-        }else if(/^[\w\-_]+@[\w-]+(\.[a-zA-Z]{2,4}){1,2}$/.test(trim($(this).value()))){
+        }else if(check_email()){
             $("#reg .info_email").css("display","none");
             $("#reg .error_email").css("display","none");
             $("#reg .succ_email").css("display","block");
@@ -349,6 +378,12 @@ $(function(){
             $("#reg .succ_email").css("display","none");
         }
     });
+    function check_email(){
+        if(/^[\w\-_]+@[\w-]+(\.[a-zA-Z]{2,4}){1,2}$/.test(trim($("form").form("email").value()))){
+            return true;
+        }
+    }
+
     //电子邮件键入
     $("form").form("email").bind("keyup",function(event){
         if($(this).value().indexOf("@")==-1) {
@@ -404,6 +439,147 @@ $(function(){
     },function(){
         $(this).css("background","#fff");
         $(this).css("color","#666");
-    })
+    });
+
+    //年月日
+    var year = $("form").form("year");
+    var month = $("form").form("month");
+    var day = $("form").form("day");
+    //注入年
+    for(var i=1950;i<=2016;i++){
+        year.first().add(new Option(i,i),undefined);
+    }
+    //注入月
+    for(var j=1;j<=12;j++){
+        month.first().add(new Option(j,j),undefined);
+    }
+    //日
+    var day30=[4,6,9,11];
+    var day31=[1,3,5,7,8,10,12];
+
+    year.bind("change",select_day);     //不可以加括号，直接把函数拿过来
+    month.bind("change",select_day);
+
+
+    function select_day(){
+        if(year.value()!=0 && month.value()!=0){
+            day.first().options.length=1;   //options长度可以赋值！
+            var days=null;
+            if(inArray(day31,parseInt(month.value()))){
+                days=31;
+            }else if(inArray(day30,parseInt(month.value()))){
+                days=30;
+            }else{
+                if(parseInt(year.value())%4==0 && parseInt(year.value())%100!=0 || parseInt(year.value())%400==0){
+                    days=29;
+                }else{
+                    days=28;
+                }
+            }
+            for(var i=1;i<=parseInt(days);i++){
+                day.first().add(new Option(i,i),undefined);
+            }
+        }else{
+            day.first().options.length=1;
+        }
+    }
+    day.bind("change",function(){
+        if(check_birth()){
+            $("#reg .error_birth").css("display","none");
+        }
+    });
+    function check_birth(){
+        if(year.value()!=0 && month.value()!=0 && day.value()!=0){
+            return true;
+        }
+    }
+
+//备注框添加文字
+    $("form").form("ps").bind("keyup",check_ps).bind("paste",function(){
+        //直接粘贴读取不到，先读取后粘贴，延后1ms，先粘贴再读取内容
+        setTimeout(check_ps,1);
+    });
+
+//清尾
+    $("#reg .ps .clear").click(function(){
+        $("form").form("ps").value($("form").form("ps").value().substring(0,200));
+        check_ps();
+    });
+
+
+
+    function check_ps(){
+        var num=200-$("form").form("ps").value().length;
+        if(num>=0){
+            $("#reg .ps").getElement(0).css("display","block");
+            $("#reg .ps .num").getElement(0).html(num);
+            $("#reg .ps").getElement(1).css("display","none");
+            return true;
+        }else{
+            $("#reg .ps").getElement(0).css("display","none");
+            $("#reg .ps").getElement(1).css("display","block");
+            $("#reg .ps .num").getElement(1).html(Math.abs(num)).css("color","red");
+            return false;
+        }
+    }
+
+
+    //如果什么也没有填写也要检测是否提交
+    $("form").form('sub').click(function(){
+        var flag=true;
+        if(!check_user()){
+            flag=false;
+            $("#reg .error_user").css("display","block");
+        }
+        if(!check_pass()){
+            flag=false;
+            $("#reg .error_pass").css("display","block");
+        }
+        if(!check_notpass()){
+            flag=false;
+            $("#reg .error_pass").css("display","block");
+        }
+        if(!check_ans()){
+            flag=false;
+            $("#reg .error_ans").css("display","block");
+        }
+        if(!check_email()){
+            flag=false;
+            $("#reg .error_email").css("display","block");
+        }
+        if(!check_ques()){
+            flag=false;
+            $("#reg .error_ques").css("display","block");
+        }
+        if(!check_birth()){
+            flag=false;
+            $("#reg .error_birth").css("display","block");
+        }
+        if(!check_ps()){
+            flag=false;
+        }
+
+        if(flag){
+            $("form").first().submit();
+        }
+    });
+
+
+    //轮播器初始化
+    $("#banner img").css("display","none");
+    $("#banner img").getElement(0).css("display","block");
+    $("#banner ul li").getElement(0).css("color","#333");
+    $("#banner strong").html($("#banner img").getElement(0).attr("alt"));
+    // alert($("#banner img").getElement(0).first().alt);  //getElement返回的是this，无法获得目标对象，所以要用first（）
+
+    //手动轮播器
+    $("#banner ul li").hover(function(){
+        $("#banner img").css("display","none");
+        $("#banner img").getElement($(this).index()).css("display","block");
+        $("#banner ul li").css("color","#999");
+        $("#banner ul li").getElement($(this).index()).css("color","#333");
+        $("#banner strong").html($("#banner img").getElement($(this).index()).attr("alt"));
+    },function(){});
+
 });
 

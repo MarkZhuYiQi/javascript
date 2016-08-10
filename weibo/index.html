@@ -61,10 +61,11 @@
                     <select name="ques" id="">
                         <option value="0">---请选择---</option>
                         <option value="1">您最喜欢吃的菜</option>
-                        <option value="1">您狗狗的名字</option>
-                        <option value="1">您的出生地</option>
-                        <option value="1">您最喜欢的明星</option>
+                        <option value="2">您狗狗的名字</option>
+                        <option value="3">您的出生地</option>
+                        <option value="4">您最喜欢的明星</option>
                     </select>
+                    <span class="error error_ques">请指定问题!</span>
                 </dd>
                 <dd>
                     回&nbsp;&nbsp;&nbsp;&nbsp;答：
@@ -89,17 +90,20 @@
                 </dd>
                 <dd class="birthday"><span style="vertical-align:-2px;">生&nbsp;&nbsp;&nbsp;&nbsp;日：</span>
                     <select name="year">
-                        <option value="0">- 请选择 -</option>
-                    </select> 年
+                        <option value="0">- 年 -</option>
+                    </select> -
                     <select name="month">
-                        <option value="0">- 请选择 -</option>
-                    </select> 月
+                        <option value="0">- 月 -</option>
+                    </select> -
                     <select name="day">
-                        <option value="0">- 请选择 -</option>
-                    </select> 日 </dd>
+                        <option value="0">- 日 -</option>
+                    </select>
+                    <span class="error error_birth">请输入日期</span>
+                </dd>
                 <dd style="height:105px;"><span style="vertical-align:85px;">备 注： </span><textarea name="ps" class=""></textarea></dd>
-                <dd style="padding:0 0 0 320px;">还能输入 200 字</dd>
-                <dd style="padding:0 0 0 80px;"><input type="button" value="" class="submit" /></dd>
+                <dd style="display:block" class="ps">还能输入 <strong class="num">200</strong> 字</dd>
+                <dd style="display:none" class="ps">超过 <strong class="num">200</strong> 字,<span class="clear">清除多余</span></dd>
+                <dd style="padding:0 0 0 80px;"><input type="button" name="sub" value="" class="submit" /></dd>
             </dl>
         </form>
     </div>
@@ -172,8 +176,21 @@
             </ul>
         </div>
         <div id="index">
-            index
+            <index></index>
         </div>
+        <div id="banner">
+            <img src="images/banner1.jpg" alt="轮播器第一张" />
+            <img src="images/banner2.jpg" alt="轮播器第二张" />
+            <img src="images/banner3.jpg" alt="轮播器第三张" />
+            <ul>
+                <li class="banner1">●</li>
+                <li class="banner2">●</li>
+                <li class="banner3">●</li>
+            </ul>
+            <span></span>
+            <strong></strong>
+        </div>
+
     </div>
 
 

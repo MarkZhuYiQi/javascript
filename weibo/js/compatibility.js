@@ -263,7 +263,13 @@ function getText(element,text){
 function setText(element,text){
     (typeof element.textContent=="string")?element.textContent=text:element.innerText=text;
 }
-
+//某一个值是否存在某一数组中
+function inArray(array,value){
+    for(var i in array){
+        if(array[i]==value)return true;
+    }
+    return false;
+}
 
 
 
