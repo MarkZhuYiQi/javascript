@@ -407,9 +407,15 @@ Base.prototype.resize=function(func){
             func();
             if(element.offsetLeft>getInner().width+getScroll().left-element.offsetWidth){
                 element.style.left=getInner().width+getScroll().left-element.offsetWidth+"px";
+                if(element.offsetLeft<=0+getScroll().left){
+                    element.style.left=0+getScroll().left+"px";
+                }
             }
             if(element.offsetTop>getInner().height+getScroll().top-element.offsetHeight){
                 element.style.top=getInner().height+getScroll().top-element.offsetHeight+"px";
+                if(element.offsetTop<=0+getScroll().top){
+                    element.style.top=0+getScroll().top+"px";
+                }
             }
         });
     }

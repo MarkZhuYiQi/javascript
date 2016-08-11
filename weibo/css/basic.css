@@ -696,3 +696,13 @@ body{
     right:8px;
     cursor:pointer;
 }
+#photo_big .big{
+    width:620px;
+    height:460px;
+}
+#photo_big .big img{
+    display:block;
+    margin:10px auto;
+    position:relative;
+    top:190px;
+}

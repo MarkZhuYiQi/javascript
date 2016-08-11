@@ -282,6 +282,20 @@ function inArray(array,value){
     }
     return false;
 }
+//获取某一节点的上一节点
+function prevIndex(current,parent){
+    var length=parent.children.length;
+    if(current==0)return length-1;
+    return current-1;
+}
+//获取某一节点的下一节点
+function nextIndex(current,parent){
+    var length=parent.children.length;
+    if(current==length)return 0;
+    return current+1;
+}
+
+
 function predef(e){
     e.preventDefault();
 }

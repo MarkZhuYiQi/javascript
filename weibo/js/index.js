@@ -744,6 +744,25 @@ $(function(){
             "final":80,
             "speed":5
         });
+        var temp_img=new Image();
+        $(temp_img).bind("load",function(){
+            //图片加载
+            $("#photo_big .big img").attr("src",temp_img.src).animation({
+                attr:"o",
+                final:100
+            }).css("width","600px").css("height","450px").css("top",0).opacity(0);
+        });
+        temp_img.src=$(this).attr("bigsrc");    //开始加载到本地缓存,ie必须放在这里才能加载
+        var children=this.parentNode.parentNode;
+        var prev=prevIndex($(children).index(),children.parentNode);
+        var next=nextIndex($(children).index(),children.parentNode);
+        var prev_img=new Image();
+        var next_img=new Image();
+        prev_img.src=$("#photo dl dt img").getElement(prev).attr("bigsrc");
+        next_img.src=$("#photo dl dt img").getElement(next).attr("bigsrc");
+        alert(prev_img.src);
+
+
     });
 //需要先渐变再关闭
     $("#photo_big .close").click(function(){
@@ -757,16 +776,27 @@ $(function(){
                 screen.unlock();
             }
         });
+        $("#photo_big .big img").attr("src","images/loading.gif").css("width","32px").css("height","32px").css("top","190px");
     });
 //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
     big.drag($("#photo_big h2").first());
 
 
-
-
-
-
-
+/*
+//问题，loading的样式被大图的宽高改变了，动画渐变效果未出现
+//创建一个临时的图片对象，用于保存图片
+//     alert($("#photo_big .big img").first());
+// alert(new Image());
+    var temp_img=new Image();
+    $(temp_img).bind("load",function(){
+        //图片加载
+        $("#photo_big .big img").attr("src",temp_img.src).animation({
+            attr:"o",
+            final:100
+        }).css("width","600px").css("height","450px").css("top",0).opacity(0);
+    });
+    temp_img.src="http://localhost/javascript/weibo/images/p1big.jpg";    //开始加载到本地缓存,ie必须放在这里才能加载
+*/
 
 });
 
