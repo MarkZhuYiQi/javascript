@@ -155,6 +155,7 @@ body{
     text-align:center;
     font-size:14px;
     letter-spacing:1px;
+    background:url(../images/login_header.png) repeat-x;
 }
 #reg h2 img{
     float:right;
@@ -601,7 +602,7 @@ body{
 }
 #banner{
     width:900px;
-    height:300px;
+    height:150px;
     float:left;
     margin:10px 0;
     position:relative;
@@ -645,4 +646,53 @@ body{
     left:10px;
     color:#fff;
     z-index:4;
+}
+#photo{
+    width:900px;
+    float:left;
+}
+#photo dl{
+    width:225px;
+    height:270px;
+    float:left;
+    margin:5px 0 15px 0;
+}
+#photo dl dt{
+    width:200px;
+    height:250px;
+    margin:0 auto;
+}
+#photo dl dd{
+    height:25px;
+    line-height:25px;
+    text-align:center;
+}
+#photo dl dt img{
+    cursor:pointer;
+}
+#photo_big{
+    width:620px;
+    height:511px;
+    border:1px solid #ccc;
+    position:absolute;
+    display:none;
+    z-index:9999;
+    background:#fff;
+    top:100px;
+    left:200px;
+}
+#photo_big h2{
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:1px;
+    background:url(../images/login_header.png) repeat-x;
+}
+#photo_big h2 img{
+    float:right;
+    position:relative;
+    top:14px;
+    right:8px;
+    cursor:pointer;
 }

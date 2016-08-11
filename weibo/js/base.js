@@ -120,8 +120,15 @@ Base.prototype.length=function(){
     return this.elements.length;
 };
 //获取某一节点的属性
-Base.prototype.attr=function(attr){
-    return this.elements[0][attr];
+Base.prototype.attr=function(attr,value){
+    for(var i=0;i<this.elements.length;i++){
+        if(arguments.length==1){
+            return this.elements[i].getAttribute(attr); //这个支持获取自定义属性
+        }else if(arguments.length==2) {
+            this.elements[i].setAttribute(attr, value);
+        }
+    }
+    return this;
 }
 //获取首个节点，并返回这个节点对象
 Base.prototype.first=function(){
@@ -355,8 +362,8 @@ Base.prototype.hide=function(){
 
 //设置模块居中
 Base.prototype.center=function(width,height){
-    var left=(getInner().width-width)/2;
-    var top=(getInner().height-height)/2;
+    var left=(getInner().width-width)/2+getScroll().left;
+    var top=(getInner().height-height)/2+getScroll().top;
     for(var i=0;i<this.elements.length;i++){
         this.elements[i].style.top=top+"px";
         this.elements[i].style.left=left+"px";
@@ -398,11 +405,11 @@ Base.prototype.resize=function(func){
 */
         addEvent(window,"resize",function(){
             func();
-            if(element.offsetLeft>getInner().width-element.offsetWidth){
-                element.style.left=getInner().width-element.offsetWidth+"px";
+            if(element.offsetLeft>getInner().width+getScroll().left-element.offsetWidth){
+                element.style.left=getInner().width+getScroll().left-element.offsetWidth+"px";
             }
-            if(element.offsetTop>getInner().height-element.offsetHeight){
-                element.style.top=getInner().height-element.offsetHeight+"px";
+            if(element.offsetTop>getInner().height+getScroll().top-element.offsetHeight){
+                element.style.top=getInner().height+getScroll().top-element.offsetHeight+"px";
             }
         });
     }
@@ -411,11 +418,14 @@ Base.prototype.resize=function(func){
 //锁屏功能
 Base.prototype.lock=function(){
     for(var i=0;i<this.elements.length;i++){
-        this.elements[i].style.width=getInner().width+"px";
-        this.elements[i].style.height=getInner().height+"px";
+        this.elements[i].style.width=getInner().width+getScroll().left+"px";
+        this.elements[i].style.height=getInner().height+getScroll().top+"px";
         this.elements[i].style.display="block";
-
-        addEvent(window,"scroll",scrollTop);
+        parseFloat(sys.firefox)<4?document.body.style.overflow="hidden":document.documentElement.style.overflow="hidden";
+        addEvent(document,"mousedown",predef);
+        addEvent(document,"mouseup",predef);
+        addEvent(document,"selectstart",predef);
+        // addEvent(window,"scroll",scrollTop);
 /*
         //遮罩状态下禁用滚动条，无法逃出遮罩区域，掩耳盗铃的感觉
         document.documentElement.style.overflow="hidden";
@@ -427,8 +437,11 @@ Base.prototype.lock=function(){
 Base.prototype.unlock=function(){
     for(var i=0;i<this.elements.length;i++){
         this.elements[i].style.display="none";
-        document.documentElement.style.overflow="auto";
-        removeEvent(window,"scroll",scrollTop);
+        parseFloat(sys.firefox)<4?document.body.style.overflow="auto":document.documentElement.style.overflow="auto";
+        removeEvent(document,"mousedown",predef);
+        removeEvent(document,"mouseup",predef);
+        removeEvent(document,"selectstart",predef);
+        // removeEvent(window,"scroll",scrollTop);
     }
     return this;
 };

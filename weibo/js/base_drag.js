@@ -77,15 +77,15 @@ $().extend("drag",function(){
             function move(e){
                 var left=e.clientX-diffX;       //控制左侧长度，不超过视窗宽度-控件宽度
                 var top=e.clientY-diffY;
-                if(left<0){
-                    left=0;
-                }else if(left>getInner().width-_this.offsetWidth){
-                    left=getInner().width-_this.offsetWidth;
+                if(left<0+getScroll().left){
+                    left=getScroll().left;
+                }else if(left>getInner().width+getScroll().left-_this.offsetWidth){
+                    left=getInner().width+getScroll().left-_this.offsetWidth;
                 }
-                if(top<0){
-                    top=0;
-                }else if(top>getInner().height-_this.offsetHeight){
-                    top=getInner().height-_this.offsetHeight;
+                if(top<0+getScroll().top){
+                    top=getScroll().top;
+                }else if(top>getInner().height+getScroll().top-_this.offsetHeight){
+                    top=getInner().height+getScroll().top-_this.offsetHeight;
                 }
                 _this.style.left=left+"px";
                 _this.style.top=top+"px";

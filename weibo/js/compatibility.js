@@ -135,19 +135,21 @@ addEvent.fixEvent.preventDefault=function(){
 addEvent.fixEvent.stopPropagation=function(){
     this.cancelBubble=true;
 };
+/*
 //滚动条清零
 function scrollTop(){
-    /*
+    /!*
      //在锁屏状态，选中文字往下拖动依然可以移动窗口显示内容造成bug
      //所以设置成滚动条一直是0位置
      window.onscroll=function(){
      document.body.scrollTop=0;
      document.documentElement.scrollTop=0;
      };
-     */
+     *!/
         document.body.scrollTop=0;
         document.documentElement.scrollTop=0;
 }
+*/
 function getScroll(){
     return{
         top : document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop,
@@ -155,6 +157,16 @@ function getScroll(){
     }
 }
 
+//获得某一个元素到最外层定点的位置
+function offsetTop(element){
+    var top=element.offsetTop;
+    var parent=element.offsetParent;
+    while(parent!=null){
+        top+=parent.offsetTop;
+        parent=parent.offsetParent;
+    }
+    return top;
+}
 //跨浏览器事件绑定,不需要标准化event了因为函数自带各自标准的event
 function addEvent(obj,type,func){
     if(typeof obj.addEventListener != "undefined"){   //W3C
@@ -270,7 +282,9 @@ function inArray(array,value){
     }
     return false;
 }
-
+function predef(e){
+    e.preventDefault();
+}
 
 
 

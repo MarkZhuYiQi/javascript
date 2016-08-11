@@ -100,16 +100,17 @@ $(function(){
     $("#shared").resize(function(){
         $("#shared").css("top",getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2+"px");
     });
-    $(window).bind("scroll",function(){
-        $("#shared").animation({
-            "final":getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2,
-            "target":getScroll().top+(getInner().height-parseInt(getStyle($("#shared").first(),"height")))/2,
-            "attr":"y",
-            "speed":5
-        });
+    $(window).bind("scroll",function() {
+        setTimeout(verticalCenter,100);
     });
-
-
+    function verticalCenter(){
+        $("#shared").animation({
+            "final": getScroll().top + (getInner().height - parseInt(getStyle($("#shared").first(), "height"))) / 2,
+            "target": getScroll().top + (getInner().height - parseInt(getStyle($("#shared").first(), "height"))) / 2,
+            "attr": "y",
+            "speed": 5
+        })
+    }
 //分享收缩效果
     $("#shared").hover(function(){
         $("#shared").animation({
@@ -563,39 +564,31 @@ $(function(){
             $("form").first().submit();
         }
     });
-
+//--------------------------------------------------------------------------------------------------------
 
     //轮播器初始化
-    // $("#banner img").css("display","none");
-    // $("#banner img").getElement(0).css("display","block");
     $("#banner img").opacity(0);
     $("#banner img").getElement(0).opacity(100);
     $("#banner ul li").getElement(0).css("color","#333");
     $("#banner strong").html($("#banner img").getElement(0).attr("alt"));
-    // alert($("#banner img").getElement(0).first().alt);  //getElement返回的是this，无法获得目标对象，所以要用first（）
 
     //自动循环轮播器
     //轮播器计数器
     var banner_index=1;
     //轮播器种类
-    var banner_type=2;  //1表示透明度，2表示上下滚动
+    var banner_type=3;  //1表示透明度，2表示上下滚动
     var banner_timer=setInterval(banner_fn,1000);
-
-
     //手动轮播器
     $("#banner ul li").hover(function(){
         clearInterval(banner_timer);
-        if($(this).css("color")!="rgb(51,51,51)"||$(this).css("color")!="#333") {
+        if($(this).css("color")!="rgb(51, 51, 51)" && $(this).css("color")!="#333") {
             banner(this, banner_index == 0 ? $("#banner ul li").length() - 1 : banner_index - 1);
         }
     },function(){
         banner_index=$(this).index()+1;
-        setInterval(banner_fn,1000);
+        banner_timer=setInterval(banner_fn,1000);   //这里需要添加到banner_timer否则无法正确清除
     });
-
     function banner(obj,prev){
-        // $("#banner img").css("display","none");
-        // $("#banner img").getElement($(obj).index()).css("display","block");
         $("#banner ul li").css("color","#999");
         $(obj).css("color","#333");
         $("#banner strong").html($("#banner img").getElement($(obj).index()).attr("alt"));
@@ -604,6 +597,7 @@ $(function(){
                 attr: "o",
                 final: 0
             }).css("z-index", 1);
+        //这个Li指向的是li，但是不能用与连缀，所以将这个li放到Base中，并返回base对象
             $("#banner img").getElement($(obj).index()).animation({
                 attr: "o",
                 final: 100
@@ -617,6 +611,15 @@ $(function(){
                 attr: "y",
                 final: 0
             }).css("top","-150px").css("z-index", 2).opacity(100);
+        }else if(banner_type==3){
+            $("#banner img").getElement(prev).animation({
+                attr:"x",
+                final:900
+            }).css("z-index",1).opacity(100);
+            $("#banner img").getElement($(obj).index()).animation({
+                attr:"x",
+                final:0
+            }).css("left","-900px").css("z-index",2).opacity(100);
         }
     }
     function banner_fn(){
@@ -625,5 +628,146 @@ $(function(){
         banner($("#banner ul li").getElement(banner_index).first(),banner_index==0?$("#banner ul li").length()-1:banner_index-1);    //这是LI对象本体
         banner_index++;
     }
+
+//--------------------------------------------------------------------------------------------------------
+
+/*
+    //轮播器初始化
+    $("#banner img").opacity(0);
+    $("#banner img").getElement(0).opacity(100);
+    $("#banner ul li").getElement(0).css("color","#333");
+    $("#banner strong").html($("#banner img").getElement(0).attr("alt"));
+    var banner_type=1;
+    var banner_timer=setInterval(banner_fn,1000);
+    var banner_index=1; //轮播器计数器
+//手动轮播器
+    $("#banner ul li").hover(function(){
+        clearInterval(banner_timer);
+        if($(this).css("color")!="rgb(51, 51, 51)" && $(this).css("color")!="#333") {
+            banner($(this).getElement(0).first(),banner_index == 0 ? $("#banner ul li").length() - 1 : banner_index - 1);
+        }
+    },function(){
+        banner_index=$(this).index()+1;
+        banner_timer=setInterval(banner_fn,1000);
+    });
+
+    function banner(obj,prev){
+        $("#banner ul li").css("color","#999");
+        $(obj).css("color","#333");
+        $("#banner strong").html($("#banner img").getElement($(obj).index()).attr("alt"));
+        if(banner_type==1) {
+            $("#banner img").getElement(prev).animation({
+                attr: "o",
+                final: 0
+            }).css("z-index", 1);
+            $("#banner img").getElement($(obj).index()).animation({
+                attr: "o",
+                final: 100
+            }).css("z-index", 2);
+        }else if(banner_type==2){
+            console.log(prev);
+            $("#banner img").getElement(prev).animation({
+                attr: "y",
+                final: 150
+            }).css("z-index", 1).opacity(100);
+            $("#banner img").getElement($(obj).index()).animation({
+                attr: "y",
+                final: 0
+            }).css("top","-150px").css("z-index", 2).opacity(100);
+        }
+    }
+    function banner_fn(){
+        console.log(banner_index);
+        if(banner_index>=$("#banner ul li").length())banner_index=0;
+        banner($("#banner ul li").getElement(banner_index).first(),banner_index==0?$("#banner ul li").length()-1:banner_index-1);
+        banner_index++;
+    }
+*/
+
+/*
+    //1.当图片进入可见区域，将图片XSRC地址替换到src中
+    //2.获取图片元素到最外层定点元素的距离
+    //3.获取页面可视范围的最低点位置
+    // alert($(".wait_load").getElement(0).attr("src",$(".wait_load").getElement(0).attr("xsrc")));
+    // alert(offsetTop($(".wait_load").first()));
+    // alert(getInner().height + getScroll().top);
+    var wait_load=$(".wait_load");
+    wait_load.opacity(0);
+    $(window).bind("scroll",function(){
+        setTimeout(function(){
+            for(var i=0;i < wait_load.length();i++){
+                var _this=wait_load.getElementBack(i);
+                if((getInner().height+getScroll().top)>=offsetTop($(_this).first())){
+                    $(_this).attr("src",$(_this).attr("xsrc")).animation({
+                        attr:"o",
+                        final:100
+                    });
+                }
+            }
+        },100);
+    });
+*/
+
+    var wait_load=$(".wait_load");
+    wait_load.opacity(0);
+    $(window).bind("scroll",_wait_load);
+    $(window).bind("resize",_wait_load);
+    function _wait_load(){
+        setTimeout(function(){      //延时运行，使其更平滑
+            for(var i=0;i<wait_load.length();i++){
+                var _this=wait_load.getElementBack(i);
+                if(getInner().height+getScroll().top>=offsetTop($(_this).first())){
+                    $(_this).attr("src",$(_this).attr("xsrc")).animation({
+                        attr:"o",
+                        final:100
+                    });
+                }
+            }
+        },100);
+    }
+
+
+    //大图框
+    var big=$("#photo_big");
+//想要实现改变大小，控件不出视野范围，就要使用连缀，否则获取不到elements里面没有login控件，无法控制！！！！！
+    big.center(620,511).resize(function(){
+        // login.center(350,250);   //窗口改变大小，控件始终居中
+        if(big.css("display")=="block"){  //如果注册框显示才锁屏
+            screen.lock();
+        }
+    });
+    $("#photo dl dt img").click(function(){
+        //锁屏遮罩
+        big.center(620,511).css("display","block");
+        screen.lock().animation({
+            "attr":"o",
+            "final":80,
+            "speed":5
+        });
+    });
+//需要先渐变再关闭
+    $("#photo_big .close").click(function(){
+        big.css("display","none");
+        //解锁
+        screen.animation({
+            "attr":"o",
+            "final":0,
+            "speed":5,
+            "fn":function(){
+                screen.unlock();
+            }
+        });
+    });
+//拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
+    big.drag($("#photo_big h2").first());
+
+
+
+
+
+
+
+
 });
+
 
