@@ -560,48 +560,18 @@ $(function(){
             flag=false;
         }
 
-        if(flag){
-            // $("form").first().submit();
+        if(flag) {
+            ajax({
+                method: "post",
+                url: "demo.php",
+                data: $("form").getElement(0).serialize(),
+                async: true,
+                success: function (text) {
+                    alert(text);
+                }
+            });
         }
-/*        ajax({
-            method:     "post",
-            url:        "demo.php",
-            data:       {
-                "user":$("form").form("user").value(),
-                "age":26
-            },
-            async:      true,
-            success:    function(text){
-                alert(text);
-            }
-        });*/
-
-        alert(serialize($("form").first()));
     });
-
-    function serialize(form){
-        var parts=new Array();
-        for(var i=0;i<form.elements.length;i++){
-            var filed=form.elements[i];
-            switch(filed.type){
-                case undefined:
-                    break;
-                case "submit":
-                    break;
-                case "reset":
-                    break;
-                case "file":
-                    break;
-                case "radio":
-                    break;
-                case "checkbox":
-                    if(!filed.selected)break;
-                default:
-                    parts.push(filed.name+"="+filed.value);
-            }
-        }
-        return parts;
-    }
 
 
 //--------------------------------------------------------------------------------------------------------
@@ -898,20 +868,20 @@ $(function(){
         $("#photo_big .big .index").html((parseInt($(children).index())+1)+"/"+$("#photo dl dt img").length());
     }
     //调用ajax
-    $(document).click(function(){
-        ajax({
-            method:     "post",
-            url:        "demo.php",
-            data:       {
-                "name":"Lee",
-                "age":26
-            },
-            async:      true,
-            success:    function(text){
-                // alert(text);
-            }
-        });
-    });
+    // $(document).click(function(){
+    //     ajax({
+    //         method:     "post",
+    //         url:        "demo.php",
+    //         data:       {
+    //             "name":"Lee",
+    //             "age":26
+    //         },
+    //         async:      true,
+    //         success:    function(text){
+    //             // alert(text);
+    //         }
+    //     });
+    // });
 });
 
 

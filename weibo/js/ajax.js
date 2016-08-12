@@ -55,12 +55,12 @@ function ajax(obj){
         }
     })();
     // obj.data=params(obj.data);
-    obj.data=(function(data){
+    obj.data=(function(data){   //将数据对象转换成数组
         var arr=[];
         for(var i in data){
             arr.push(encodeURIComponent(i)+"="+encodeURIComponent(data[i]));
         }
-        return arr.join("&");
+        return arr.join("&");   //数组组合为字符串并用“&”间隔
     })(obj.data);
     obj.url=obj.url+"?rand="+Math.random();
     if(obj.method==="get")obj.url+=obj.url.indexOf("?")==-1?"?"+obj.data:"&"+obj.data;
@@ -69,7 +69,7 @@ function ajax(obj){
             if(xhr.readyState==4)callback();            //加括号就是执行函数，将函数结果拿回来，不加括号就是将函数整个搬过来
         }
     }
-    xhr.open(obj.method,obj.url,obj.async);
+    xhr.open(obj.method,obj.url,obj.async);     //初始化请求
     if(obj.method==="post"){
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(obj.data);
