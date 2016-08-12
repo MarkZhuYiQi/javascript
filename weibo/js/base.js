@@ -424,13 +424,17 @@ Base.prototype.resize=function(func){
 //锁屏功能
 Base.prototype.lock=function(){
     for(var i=0;i<this.elements.length;i++){
+        fixScroll.top=getScroll().top;
+        fixScroll.left=getScroll().left;
         this.elements[i].style.width=getInner().width+getScroll().left+"px";
         this.elements[i].style.height=getInner().height+getScroll().top+"px";
         this.elements[i].style.display="block";
         parseFloat(sys.firefox)<4?document.body.style.overflow="hidden":document.documentElement.style.overflow="hidden";
-        addEvent(document,"mousedown",predef);
-        addEvent(document,"mouseup",predef);
-        addEvent(document,"selectstart",predef);
+
+        addEvent(this.elements[i],"mousedown",predef);
+        addEvent(this.elements[i],"mouseup",predef);
+        addEvent(this.elements[i],"selectstart",predef);
+        addEvent(window,"scroll",fixScroll);
         // addEvent(window,"scroll",scrollTop);
 /*
         //遮罩状态下禁用滚动条，无法逃出遮罩区域，掩耳盗铃的感觉
@@ -444,9 +448,12 @@ Base.prototype.unlock=function(){
     for(var i=0;i<this.elements.length;i++){
         this.elements[i].style.display="none";
         parseFloat(sys.firefox)<4?document.body.style.overflow="auto":document.documentElement.style.overflow="auto";
-        removeEvent(document,"mousedown",predef);
-        removeEvent(document,"mouseup",predef);
-        removeEvent(document,"selectstart",predef);
+
+        removeEvent(this.elements[i],"mousedown",predef);
+        removeEvent(this.elements[i],"mouseup",predef);
+        removeEvent(this.elements[i],"selectstart",predef);
+        removeEvent(window,"scroll",fixScroll);
+
         // removeEvent(window,"scroll",scrollTop);
     }
     return this;

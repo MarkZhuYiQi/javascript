@@ -561,9 +561,49 @@ $(function(){
         }
 
         if(flag){
-            $("form").first().submit();
+            // $("form").first().submit();
         }
+/*        ajax({
+            method:     "post",
+            url:        "demo.php",
+            data:       {
+                "user":$("form").form("user").value(),
+                "age":26
+            },
+            async:      true,
+            success:    function(text){
+                alert(text);
+            }
+        });*/
+
+        alert(serialize($("form").first()));
     });
+
+    function serialize(form){
+        var parts=new Array();
+        for(var i=0;i<form.elements.length;i++){
+            var filed=form.elements[i];
+            switch(filed.type){
+                case undefined:
+                    break;
+                case "submit":
+                    break;
+                case "reset":
+                    break;
+                case "file":
+                    break;
+                case "radio":
+                    break;
+                case "checkbox":
+                    if(!filed.selected)break;
+                default:
+                    parts.push(filed.name+"="+filed.value);
+            }
+        }
+        return parts;
+    }
+
+
 //--------------------------------------------------------------------------------------------------------
 
     //轮播器初始化
@@ -576,7 +616,7 @@ $(function(){
     //轮播器计数器
     var banner_index=1;
     //轮播器种类
-    var banner_type=3;  //1表示透明度，2表示上下滚动
+    var banner_type=1;  //1表示透明度，2表示上下滚动
     var banner_timer=setInterval(banner_fn,1000);
     //手动轮播器
     $("#banner ul li").hover(function(){
@@ -745,24 +785,15 @@ $(function(){
             "speed":5
         });
         var temp_img=new Image();
-        $(temp_img).bind("load",function(){
-            //图片加载
+        $(temp_img).bind("load",function(){     //这个方法在图片完全加载后就会执行
             $("#photo_big .big img").attr("src",temp_img.src).animation({
                 attr:"o",
                 final:100
-            }).css("width","600px").css("height","450px").css("top",0).opacity(0);
+            }).css("width","600px").css('height',"450px").css("top",0).opacity(0);
         });
         temp_img.src=$(this).attr("bigsrc");    //开始加载到本地缓存,ie必须放在这里才能加载
-        var children=this.parentNode.parentNode;
-        var prev=prevIndex($(children).index(),children.parentNode);
-        var next=nextIndex($(children).index(),children.parentNode);
-        var prev_img=new Image();
-        var next_img=new Image();
-        prev_img.src=$("#photo dl dt img").getElement(prev).attr("bigsrc");
-        next_img.src=$("#photo dl dt img").getElement(next).attr("bigsrc");
-        alert(prev_img.src);
-
-
+        var children=this.parentNode.parentNode;    //dl
+        prev_next_img(children);
     });
 //需要先渐变再关闭
     $("#photo_big .close").click(function(){
@@ -798,6 +829,89 @@ $(function(){
     temp_img.src="http://localhost/javascript/weibo/images/p1big.jpg";    //开始加载到本地缓存,ie必须放在这里才能加载
 */
 
+//图片鼠标划过
+    $("#photo_big .big .left").hover(function(){
+        $("#photo_big .big .sl").animation({
+            attr:"o",
+            final:50
+        })
+    },function(){
+        $("#photo_big .big .sl").animation({
+            attr:"o",
+            final:0
+        })
+    });
+    $("#photo_big .big .right").hover(function(){
+        $("#photo_big .big .sr").animation({
+            attr:"o",
+            final:50
+        })
+    },function(){
+        $("#photo_big .big .sr").animation({
+            attr:"o",
+            final:0
+        })
+    });
+
+// 思路：首先将上/下一张图片的图片地址直接赋给photo_big中，然后根据当前img标签中存的当前图片索引index取得上一张和下一张的索引
+// 然后提前加载前后两张图片，将前后两张图片地址赋给两个按钮
+//图片上一张
+    $("#photo_big .big .left").click(function(){
+        $("#photo_big .big img").attr("src","images/loading.gif").css("width","32px").css("height","32px").css("top","190px");
+        var current_img=new Image();
+        $(current_img).bind("load",function(){
+            //将left上的的图片地址，放到img上
+            $("#photo_big .big img").attr("src",current_img.src).animation({
+                attr:"o",
+                final:100
+            }).opacity(0).css("width","600px").css("height","450px").css("top","8px");
+        });
+
+        current_img.src=$(this).attr("src");
+        //将上一页的整个图片对象保存下来，然后保存上一级的上一级父节点
+        var children=$("#photo dl dt img").getElementBack(prevIndex($("#photo_big .big img").attr("index"),$("#photo").first())).parentNode.parentNode;
+        prev_next_img(children);
+    });
+//图片下一张
+    $("#photo_big .big .right").click(function(){
+        $("#photo_big .big img").attr("src",$(this).attr("src")).animation({
+            attr:"o",
+            final:100
+        }).opacity(0);
+        var children=$("#photo dl dt img").getElementBack(nextIndex($("#photo_big .big img").attr("index"),$("#photo").first())).parentNode.parentNode;
+        prev_next_img(children);
+    });
+    //该函数用于接收photo下的dl，根据该dl在这个div下的索引，获得前一张，后一张的图片缓存，然后把再把当前页的索引放到显示的图片属性中
+    function prev_next_img(children){
+        var prev=prevIndex($(children).index(),children.parentNode);
+        var next=nextIndex($(children).index(),children.parentNode);
+        var prev_img=new Image();
+        var next_img=new Image();
+        prev_img.src=$("#photo dl dt img").getElement(prev).attr("bigsrc");
+        next_img.src=$("#photo dl dt img").getElement(next).attr("bigsrc");
+        $("#photo_big .big .left").attr("src",prev_img.src);
+        $("#photo_big .big .right").attr("src",next_img.src);
+        //将当前的图片索引值保存在img里面
+        //将children的索引值给赋值到之前的
+        $("#photo_big .big img").attr("index",$(children).index());
+        console.log(children);
+        $("#photo_big .big .index").html((parseInt($(children).index())+1)+"/"+$("#photo dl dt img").length());
+    }
+    //调用ajax
+    $(document).click(function(){
+        ajax({
+            method:     "post",
+            url:        "demo.php",
+            data:       {
+                "name":"Lee",
+                "age":26
+            },
+            async:      true,
+            success:    function(text){
+                // alert(text);
+            }
+        });
+    });
 });
 
 

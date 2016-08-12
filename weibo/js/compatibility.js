@@ -286,15 +286,23 @@ function inArray(array,value){
 function prevIndex(current,parent){
     var length=parent.children.length;
     if(current==0)return length-1;
-    return current-1;
+    return parseInt(current)-1;
 }
 //获取某一节点的下一节点
 function nextIndex(current,parent){
     var length=parent.children.length;
-    if(current==length)return 0;
-    return current+1;
+    if(current==length-1)return 0;
+    return parseInt(current)+1;
 }
 
+//滚动条固定，同时防止多次运行，拖动一点点就噼噼啪啪各种运行
+function fixScroll(){
+    setTimeout(
+        function(){
+            window.scrollTo(fixScroll.left,fixScroll.top);
+        },100
+    );
+}
 
 function predef(e){
     e.preventDefault();
