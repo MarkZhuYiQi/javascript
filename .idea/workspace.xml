@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7270da41-9550-4e7d-b741-1ea2961e09d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/js/base_form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/loading2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/loading3.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/success.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/add.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/is_user.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weibo/demo.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/images/reg.png" afterPath="$PROJECT_DIR$/weibo/images/reg.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax.js" afterPath="$PROJECT_DIR$/ajax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/css/basic.css" afterPath="$PROJECT_DIR$/weibo/css/basic.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/index.html" afterPath="$PROJECT_DIR$/weibo/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/ajax.js" afterPath="$PROJECT_DIR$/weibo/js/ajax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/index.js" afterPath="$PROJECT_DIR$/weibo/js/index.js" />
     </list>
     <ignored path="javascript.iws" />
@@ -27,145 +35,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weibo/js/base.js">
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="264" column="4" selection-start-line="264" selection-start-column="4" selection-end-line="264" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weibo/js/ajax.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+            <state relative-caret-position="189">
+              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
               <folding>
-                <element signature="n#!!doc;n#createXHR#0" expanded="false" />
-                <element signature="n#!!block;n#createXHR#0" expanded="false" />
-                <element signature="n#!!block;n#params#0" expanded="false" />
+                <marker date="1471096582429" expanded="true" signature="474:568" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:593" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:600" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:610" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:612" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:630" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:631" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:650" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:679" ph="INSERT INTO " />
+                <marker date="1471096582429" expanded="true" signature="474:709" ph="INSERT INTO " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compatibility.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weibo/js/compatibility.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5472">
-              <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-              <folding>
-                <marker date="1471004374673" expanded="true" signature="64:711" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="620:709" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="789:2292" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="915:1134" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="1227:1751" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="1260:1520" ph="/*...*/" />
-                <marker date="1471004374673" expanded="true" signature="1588:1741" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="1785:1999" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="1858:1991" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2024:2290" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2086:2280" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2103:2208" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2216:2270" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2326:2635" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2389:2475" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2485:2633" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2502:2626" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2681:2929" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="2869:2927" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3141:3374" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3302:3372" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3424:3606" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3559:3604" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3641:3676" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3708:3872" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3781:3824" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3828:3870" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="3933:4111" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="4253:4284" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="4286:4598" ph="/*...*/" />
-                <marker date="1471004374673" expanded="true" signature="4619:4869" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="4631:4867" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="4917:5102" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5010:5084" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5175:6234" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5227:5617" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5307:5611" ph="/*...*/" />
-                <marker date="1471004374673" expanded="true" signature="5622:6232" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5632:5694" ph="//..." />
-                <marker date="1471004374673" expanded="true" signature="5787:5929" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="5933:6047" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6131:6184" ph="//..." />
-                <marker date="1471004374673" expanded="true" signature="6235:6291" ph="/*...*/" />
-                <marker date="1471004374673" expanded="true" signature="6312:6344" ph="//..." />
-                <marker date="1471004374673" expanded="true" signature="6374:6602" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6465:6600" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6649:6736" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6671:6734" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6784:7256" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6838:7029" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="6900:7023" ph="/*...*/" />
-                <marker date="1471004374673" expanded="true" signature="7034:7254" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7060:7248" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7106:7238" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7157:7224" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7316:7538" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7345:7456" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7460:7536" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7572:7754" ph="/** relatedTarget 事件属性返回与事件的目标节点相关的节点。 ...*/" />
-                <marker date="1471004374673" expanded="true" signature="7784:8276" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="7823:8058" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="8062:8274" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="8320:8412" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="8597:8689" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="8622:8669" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="8738:8825" ph="{...}" />
-                <marker date="1471004374673" expanded="true" signature="9198:9225" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weibo/demo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibo/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="579" column="32" selection-start-line="579" selection-start-column="32" selection-end-line="579" selection-end-column="32" />
+            <state relative-caret-position="480">
+              <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_form.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/weibo/js/base_form.js">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+            <state relative-caret-position="487">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
-                <element signature="e#0#49#0" expanded="false" />
+                <element signature="e#6#94#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_drag.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weibo/js/base_drag.js">
+      <file leaf-file-name="basic.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/css/basic.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            <state relative-caret-position="550">
+              <caret line="250" column="17" selection-start-line="250" selection-start-column="17" selection-end-line="250" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -174,9 +91,23 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="326" column="12" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="12" />
+            <state relative-caret-position="226">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="is_user.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/is_user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding>
+                <marker date="1471100539141" expanded="true" signature="177:222" ph="SELECT `user... weibo_user" />
+                <marker date="1471100539141" expanded="true" signature="177:239" ph="SELECT `user... weibo_user" />
+                <marker date="1471100539141" expanded="true" signature="177:248" ph="SELECT `user... weibo_user" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,11 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/closure.js" />
-        <option value="$PROJECT_DIR$/object_prototype.js" />
-        <option value="$PROJECT_DIR$/opener.js" />
-        <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/BOM.js" />
         <option value="$PROJECT_DIR$/scan_explorer.js" />
         <option value="$PROJECT_DIR$/DOM_keyPoint.js" />
         <option value="$PROJECT_DIR$/DOM_advance.js" />
@@ -242,13 +168,18 @@
         <option value="$PROJECT_DIR$/weibo/css/test.css" />
         <option value="$PROJECT_DIR$/weibo/js/change.js" />
         <option value="$PROJECT_DIR$/weibo/js/base_drag.js" />
-        <option value="$PROJECT_DIR$/weibo/css/basic.css" />
         <option value="$PROJECT_DIR$/weibo/js/base.js" />
         <option value="$PROJECT_DIR$/weibo/js/compatibility.js" />
         <option value="$PROJECT_DIR$/weibo/js/ajax.js" />
-        <option value="$PROJECT_DIR$/weibo/index.html" />
-        <option value="$PROJECT_DIR$/weibo/js/index.js" />
         <option value="$PROJECT_DIR$/weibo/js/base_form.js" />
+        <option value="$PROJECT_DIR$/config.php" />
+        <option value="$PROJECT_DIR$/weibo/demo.php" />
+        <option value="$PROJECT_DIR$/weibo/add.php" />
+        <option value="$PROJECT_DIR$/weibo/index.html" />
+        <option value="$PROJECT_DIR$/weibo/css/basic.css" />
+        <option value="$PROJECT_DIR$/weibo/config.php" />
+        <option value="$PROJECT_DIR$/weibo/is_user.php" />
+        <option value="$PROJECT_DIR$/weibo/js/index.js" />
       </list>
     </option>
   </component>
@@ -263,10 +194,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="450" />
-    <option name="y" value="6" />
-    <option name="width" value="893" />
-    <option name="height" value="737" />
+    <option name="x" value="864" />
+    <option name="width" value="986" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -293,7 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,27 +274,9 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascript" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascript" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="weibo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,15 +287,17 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/wamp/www/javascript/JSON.json" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\wamp\www\javascript\weibo\images" />
+      <recent name="G:\wamp\www\javascript\weibo" />
+      <recent name="D:\wamp\www\javascript\weibo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\wamp\www\javascript\weibo\images" />
       <recent name="D:\wamp\www\javascript\weibo\js" />
       <recent name="C:\wamp\www\javascript\weibo\images" />
       <recent name="D:\wamp\www\javascript\weibo\images" />
       <recent name="D:\wamp\www\javascript" />
-      <recent name="C:\wamp\www\javascript\weibo\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp\www\javascript\weibo" />
     </key>
   </component>
   <component name="RunManager">
@@ -488,6 +402,8 @@
       <workItem from="1470916606145" duration="10067000" />
       <workItem from="1470964356532" duration="27861000" />
       <workItem from="1471005360497" duration="6017000" />
+      <workItem from="1471087141131" duration="451000" />
+      <workItem from="1471089537905" duration="10564000" />
     </task>
     <task id="LOCAL-00001" summary="learning">
       <created>1469361647814</created>
@@ -521,16 +437,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631811000" />
+    <option name="totallyTimeSpent" value="642826000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="450" y="6" width="893" height="737" extended-state="0" />
+    <frame x="864" y="0" width="986" height="998" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2177879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24536082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32356256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -541,7 +458,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32372504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -563,46 +479,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JSON.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSON.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DOMcss.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/weibo/images/header_bg.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -680,7 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="662">
           <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,19 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/css/basic.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="748" column="22" selection-start-line="748" selection-start-column="22" selection-end-line="748" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/weibo/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,91 +709,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1840">
           <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/demo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/compatibility.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5472">
+        <state relative-caret-position="6573">
           <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-          <folding>
-            <marker date="1471004374673" expanded="true" signature="64:711" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="620:709" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="789:2292" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="915:1134" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="1227:1751" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="1260:1520" ph="/*...*/" />
-            <marker date="1471004374673" expanded="true" signature="1588:1741" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="1785:1999" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="1858:1991" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2024:2290" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2086:2280" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2103:2208" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2216:2270" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2326:2635" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2389:2475" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2485:2633" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2502:2626" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2681:2929" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="2869:2927" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3141:3374" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3302:3372" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3424:3606" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3559:3604" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3641:3676" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3708:3872" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3781:3824" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3828:3870" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="3933:4111" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="4253:4284" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="4286:4598" ph="/*...*/" />
-            <marker date="1471004374673" expanded="true" signature="4619:4869" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="4631:4867" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="4917:5102" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5010:5084" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5175:6234" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5227:5617" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5307:5611" ph="/*...*/" />
-            <marker date="1471004374673" expanded="true" signature="5622:6232" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5632:5694" ph="//..." />
-            <marker date="1471004374673" expanded="true" signature="5787:5929" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="5933:6047" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6131:6184" ph="//..." />
-            <marker date="1471004374673" expanded="true" signature="6235:6291" ph="/*...*/" />
-            <marker date="1471004374673" expanded="true" signature="6312:6344" ph="//..." />
-            <marker date="1471004374673" expanded="true" signature="6374:6602" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6465:6600" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6649:6736" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6671:6734" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6784:7256" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6838:7029" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="6900:7023" ph="/*...*/" />
-            <marker date="1471004374673" expanded="true" signature="7034:7254" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7060:7248" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7106:7238" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7157:7224" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7316:7538" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7345:7456" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7460:7536" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7572:7754" ph="/** relatedTarget 事件属性返回与事件的目标节点相关的节点。 ...*/" />
-            <marker date="1471004374673" expanded="true" signature="7784:8276" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="7823:8058" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="8062:8274" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="8320:8412" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="8597:8689" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="8622:8669" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="8738:8825" ph="{...}" />
-            <marker date="1471004374673" expanded="true" signature="9198:9225" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -935,9 +727,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/js/base_drag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-453">
+          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
+        <state relative-caret-position="655">
           <caret line="87" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc;n#createXHR#0" expanded="false" />
@@ -947,45 +747,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/images/loading2.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/images/loading3.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/images/reg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="264" column="4" selection-start-line="264" selection-start-column="4" selection-end-line="264" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="326" column="12" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/js/base_drag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="579" column="32" selection-start-line="579" selection-start-column="32" selection-end-line="579" selection-end-column="32" />
+        <state relative-caret-position="-1499">
+          <caret line="567" column="0" selection-start-line="567" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/base_form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
+        <state relative-caret-position="664">
           <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <marker date="1471096582429" expanded="true" signature="474:568" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:593" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:600" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:610" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:612" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:630" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:631" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:650" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:679" ph="INSERT INTO " />
+            <marker date="1471096582429" expanded="true" signature="474:709" ph="INSERT INTO " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/css/basic.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="250" column="17" selection-start-line="250" selection-start-column="17" selection-end-line="250" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="e#6#94#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/is_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <marker date="1471100539141" expanded="true" signature="177:222" ph="SELECT `user... weibo_user" />
+            <marker date="1471100539141" expanded="true" signature="177:239" ph="SELECT `user... weibo_user" />
+            <marker date="1471100539141" expanded="true" signature="177:248" ph="SELECT `user... weibo_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -33,7 +33,7 @@ function createXHR(){
     //同步请求
     addEvent(window,"keyup",function(){
         var xhr=createXHR();
-        xhr.open("get","demo.php?rand"+Math.random(),false); //准备发送请求,get方式，同步
+        xhr.open("get","add.php?rand"+Math.random(),false); //准备发送请求,get方式，同步
         xhr.send(null);                     //发送请求，get不需要数据提交，则为null
 
         // alert(xhr.status);          //http头状态
@@ -64,7 +64,7 @@ function createXHR(){
                 }
             }
         };
-        xhr.open("get","demo.php?rand="+Math.random(),true);
+        xhr.open("get","add.php?rand="+Math.random(),true);
         xhr.send(null);
         // xhr.abort();        //取消异步请求,必须放在这里
     });
@@ -87,7 +87,7 @@ function createXHR(){
                 }
             }
         };
-        xhr.open("get","demo.php?rand="+Math.random(),true);
+        xhr.open("get","add.php?rand="+Math.random(),true);
         // xhr.setRequestHeader("myheader","Mark");        //设置请求头信息，一般不用
         xhr.send(null);
         // xhr.abort();        //取消异步请求,必须放在这里
@@ -99,7 +99,7 @@ function createXHR(){
     //ajax全部使用utf-8，所以要将所有编码统一为UTF-8
     addEvent(window,"click",function(){
         var xhr=createXHR();
-        var url="demo.php?rand="+Math.random();
+        var url="add.php?rand="+Math.random();
         url = params(url,"name","M&ark");
         url = params(url,"age",26);
         alert(url);
@@ -128,7 +128,7 @@ function createXHR(){
     //POST必须模仿表单提交，更改请求头
     addEvent(window,"click",function(){
         var xhr=createXHR();
-        var url="demo.php?rand="+Math.random();
+        var url="add.php?rand="+Math.random();
         alert(url);
         xhr.onreadystatechange=function(){
             if(xhr.readyState==4){
@@ -209,7 +209,7 @@ function params(data){
 addEvent(window,"load",function(){
     ajax({
         method:     "get",
-        url:        "demo.php",
+        url:        "add.php",
         data:       {
                         "name":"Lee",
                         "age":26

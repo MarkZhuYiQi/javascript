@@ -202,7 +202,30 @@ $(function(){
         }
     });
     function check_user(){
-        if(/[\w]{2,20}/.test(trim($("form").form("user").value())))return true;
+        var flag=true;
+        if(!/[\w]{2,20}/.test(trim($("form").form("user").value()))){
+            $("#reg .error_user").html("用户名不合法！");
+            return false;
+        }else{
+            $("#reg .info_user").css("display","none");
+            $("#reg .loading").css("display","block");
+            ajax({
+                method: "post",
+                url: "is_user.php",
+                data: $("form").getElement(0).serialize(),
+                async: false,        //同步
+                success: function (text) {
+                    if(text==1){
+                        $("#reg .error_user").html("用户名已被使用！");
+                        flag=false;
+                    }else{
+                        flag=true;
+                    }
+                    $("#reg .loading").css("display","none");
+                }
+            });
+        }
+        return flag;
     }
 
     // alert($("#reg .info_user").first());
@@ -561,13 +584,37 @@ $(function(){
         }
 
         if(flag) {
+            var _this=this;
+            $(_this).css("backgroundPosition","right"); //让注册按钮变灰
+            _this.disabled="disabled";                  //注销注册按钮功能
+            $("#loading").css("display","block").center(200,40);
+            $("#loading").html("正在提交注册中...");
             ajax({
                 method: "post",
-                url: "demo.php",
+                url: "add.php",
                 data: $("form").getElement(0).serialize(),
                 async: true,
                 success: function (text) {
-                    alert(text);
+                    if(text==1){
+                        $("#loading").css("display","none");
+                        $("#success").css("display","block").center(200,40);
+                        $("#loading").html("注册成功！");
+                        setTimeout(function(){
+                            $("#success").css("display","none");
+                            reg.css("display","none");
+                            $("#reg .succ").css('display','none');
+                            $("form").first().reset();
+                            $(_this).css("background-position","left");
+                            _this.disabled="";
+                            screen.animation({
+                                attr:"o",
+                                final:0,
+                                "fn":function(){
+                                    screen.unlock();
+                                }
+                            });
+                        },1500);
+                    }
                 }
             });
         }
@@ -871,7 +918,7 @@ $(function(){
     // $(document).click(function(){
     //     ajax({
     //         method:     "post",
-    //         url:        "demo.php",
+    //         url:        "add.php",
     //         data:       {
     //             "name":"Lee",
     //             "age":26

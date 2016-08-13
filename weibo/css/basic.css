@@ -209,7 +209,7 @@ body{
 #reg dl dd input.submit{
     width:143px;
     height:33px;
-    background:url(../images/reg.png) no-repeat;
+    background:url(../images/reg.png) no-repeat left;
     border:none;
     cursor:pointer;
 
@@ -239,6 +239,16 @@ body{
     background:url(../images/reg_succ.png)no-repeat;
     padding:0 0 0 20px;
     color:green;
+}
+#reg dl dd .loading{
+    position:absolute;
+    top:12px;
+    left:340px;
+    font-size:12px;
+    background:url("../images/loading2.gif")no-repeat;
+    text-indent:22px;
+    padding:1px 0 0 0;
+    display:none;
 }
 #reg dl dd .info_user{
     top:3px;
@@ -752,4 +762,40 @@ body{
     color:#fff;
     font-style:normal;
     font-size:14px;
+}
+#loading{
+    position:absolute;
+    width:200px;
+    height:40px;
+    background:url("../images/login_header.png");
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;
+    z-index:10000;
+    display:none;
+}
+#loading p{
+    height:40px;
+    line-height:40px;
+    font-size:14px;
+    color:#666;
+    background:url("../images/loading3.gif")no-repeat 20px center;
+    text-indent:50px;
+}
+#success{
+    position:absolute;
+    width:200px;
+    height:40px;
+    background:url("../images/login_header.png");
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;
+    z-index:10000;
+    display:none;
+}
+#success p{
+    height:40px;
+    line-height:40px;
+    font-size:14px;
+    color:#666;
+    background:url("../images/success.gif")no-repeat 20px center;
+    text-indent:50px;
 }
