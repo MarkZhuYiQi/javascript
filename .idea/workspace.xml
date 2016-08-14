@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7270da41-9550-4e7d-b741-1ea2961e09d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/blog_button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/images/loading4.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/add_blog.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/get_blog.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/js/index_backup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/js/json2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/images/login_button.png" afterPath="$PROJECT_DIR$/weibo/images/login_button.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weibo/weibo.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/css/basic.css" afterPath="$PROJECT_DIR$/weibo/css/basic.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/index.html" afterPath="$PROJECT_DIR$/weibo/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/base.js" afterPath="$PROJECT_DIR$/weibo/js/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/compatibility.js" afterPath="$PROJECT_DIR$/weibo/js/compatibility.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weibo/js/index.js" afterPath="$PROJECT_DIR$/weibo/js/index.js" />
     </list>
     <ignored path="javascript.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +27,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weibo/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
+            <state relative-caret-position="21">
               <caret line="1057" column="42" selection-start-line="1057" selection-start-column="42" selection-end-line="1057" selection-end-column="42" />
               <folding />
             </state>
@@ -49,7 +37,7 @@
       <file leaf-file-name="base.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/js/base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="5901">
               <caret line="281" column="9" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="9" />
               <folding />
             </state>
@@ -59,7 +47,7 @@
       <file leaf-file-name="compatibility.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/js/compatibility.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
+            <state relative-caret-position="6552">
               <caret line="312" column="74" selection-start-line="312" selection-start-column="74" selection-end-line="312" selection-end-column="74" />
               <folding />
             </state>
@@ -69,7 +57,7 @@
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="420">
               <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
                 <element signature="e#6#94#0#PHP" expanded="true" />
@@ -81,7 +69,7 @@
       <file leaf-file-name="basic.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/css/basic.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="14721">
               <caret line="701" column="43" selection-start-line="701" selection-start-column="43" selection-end-line="701" selection-end-column="43" />
               <folding />
             </state>
@@ -91,7 +79,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/weibo/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
+            <state relative-caret-position="4242">
               <caret line="202" column="27" selection-start-line="202" selection-start-column="27" selection-end-line="202" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#dd#1;n#dl#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -215,7 +203,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -268,6 +255,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,7 +385,8 @@
       <workItem from="1471087141131" duration="451000" />
       <workItem from="1471089537905" duration="10611000" />
       <workItem from="1471137190929" duration="18047000" />
-      <workItem from="1471169939173" duration="10547000" />
+      <workItem from="1471169939173" duration="10576000" />
+      <workItem from="1471180867567" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="learning">
       <created>1469361647814</created>
@@ -434,17 +423,24 @@
       <option name="project" value="LOCAL" />
       <updated>1471100743845</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="learning">
+      <created>1471180799516</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1471180799516</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="671467000" />
+    <option name="totallyTimeSpent" value="671506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.123958334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -658,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-453">
           <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,9 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,10 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="e#6#94#0#PHP" expanded="false" />
-            <marker date="1471151185293" expanded="true" signature="178:256" ph="SELECT `user... weibo_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -709,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="656">
           <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,9 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-945">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -748,11 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <marker date="1471100539141" expanded="true" signature="177:222" ph="SELECT `user... weibo_user" />
-            <marker date="1471100539141" expanded="true" signature="177:239" ph="SELECT `user... weibo_user" />
-            <marker date="1471100539141" expanded="true" signature="177:248" ph="SELECT `user... weibo_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,13 +739,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/css/basic.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="14721">
           <caret line="701" column="43" selection-start-line="701" selection-start-column="43" selection-end-line="701" selection-end-column="43" />
           <folding />
         </state>
@@ -774,7 +752,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/compatibility.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="6552">
           <caret line="312" column="74" selection-start-line="312" selection-start-column="74" selection-end-line="312" selection-end-column="74" />
           <folding />
         </state>
@@ -782,7 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
+        <state relative-caret-position="4242">
           <caret line="202" column="27" selection-start-line="202" selection-start-column="27" selection-end-line="202" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#span#0;n#dd#1;n#dl#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -794,7 +772,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="420">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="e#6#94#0#PHP" expanded="true" />
@@ -802,19 +780,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weibo/add_blog_backup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/add_blog_backup.php" />
     <entry file="file://$PROJECT_DIR$/weibo/js/index_backup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,16 +792,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-          <folding>
-            <marker date="1471172697573" expanded="true" signature="177:226" ph="SELECT `titl... weibo_blog" />
-            <marker date="1471172697573" expanded="true" signature="177:256" ph="SELECT `titl... weibo_blog" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="5901">
           <caret line="281" column="9" selection-start-line="281" selection-start-column="4" selection-end-line="281" selection-end-column="9" />
           <folding />
         </state>
@@ -841,17 +807,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
           <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-          <folding>
-            <marker date="1471180425491" expanded="true" signature="409:498" ph="INSERT INTO `weibo_blog`... " />
-            <marker date="1471180425491" expanded="true" signature="409:519" ph="INSERT INTO `weibo_blog`... " />
-            <marker date="1471180425491" expanded="true" signature="409:525" ph="INSERT INTO `weibo_blog`... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weibo/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
+        <state relative-caret-position="21">
           <caret line="1057" column="42" selection-start-line="1057" selection-start-column="42" selection-end-line="1057" selection-end-column="42" />
           <folding />
         </state>
