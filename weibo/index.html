@@ -10,14 +10,16 @@
         <div class="logo"><img src="images/logo.gif" alt=""></div>
         <div class="member">个人中心
             <ul class="member_ul">
-                <li><a href="">设置</a></li>
-                <li><a href="">换肤</a></li>
-                <li><a href="">帮助</a></li>
-                <li><a href="">退出</a></li>
+                <li><a href="#">发文</a></li>
+                <li><a href="#">换肤</a></li>
+                <li><a href="#">帮助</a></li>
+                <li><a href="#">退出</a></li>
             </ul>
         </div>
+
         <div class="reg">注册</div>
         <div class="login">登录</div>
+        <div class="info"></div>
     </div>
     <div id="reg">
         <h2><img src="images/close.png" alt="" class="close">会员注册</h2>
@@ -110,19 +112,40 @@
     </div>
     <div id="login">
         <h2 id="title"><img src="images/close.png" class="close" alt="">网站登录</h2>
-        <div class="user">账号:
-            <input type="text" value="" name="user" class="text" />
-        </div>
-        <div class="user">密码:
-            <input type="password" value="" name="password" class="text" />
-        </div>
-        <div class="button">
-            <button class="submit"></button>
-        </div>
-        <div class="other">
-            注册新用户 | 忘记密码？
-        </div>
+        <form name="login">
+            <div class="info"></div>
+            <div class="user">账号:
+                <input type="text" value="" name="user" class="text" />
+            </div>
+            <div class="user">密码:
+                <input type="password" value="" name="pass" class="text" />
+            </div>
+            <div class="button">
+                <input type="button" name="sub" value="" class="submit" />
+            </div>
+            <div class="other">
+                注册新用户 | 忘记密码？
+            </div>
+        </form>
     </div>
+
+    <div id="blog">
+        <h2><img src="images/close.png" alt="" class="close" />发表博文</h2>
+        <form name="blog">
+            <div class="info">failed</div>
+            <dl>
+                <dd>标 题： <input type="text" name="title" class="title" /> (*不可为空)</dd>
+                <dd><span style="vertical-align:85px">内 容：</span>
+                    <textarea name="content" class="content"></textarea>
+                    <span style="vertical-align:45px">(*不可为空)</span></dd>
+                <dd style="padding:10px 0 0 66px;">
+                    <input type="button" name="sub" class="submit" /></dd>
+            </dl>
+        </form>
+    </div>
+<!--    <div id="index">
+        <span class="loading"></span>
+    </div>-->
 
     <div id="nav">
         <ul class="about">
@@ -177,7 +200,20 @@
             </ul>
         </div>
         <div id="index">
-            <index></index>
+            <div class="content">
+                <div class="detail1">
+                    <h2>title</h2>
+                    <p>content</p>
+                </div>
+                <div class="detail2">
+                    <h2>title</h2>
+                    <p>content</p>
+                </div>
+                <div class="detail3">
+                    <h2>title</h2>
+                    <p>content</p>
+                </div>
+            </div>
         </div>
         <div id="banner">
             <img src="images/banner1.jpg" alt="轮播器第一张" />
@@ -354,6 +390,7 @@
     <script type="text/javascript" src="js/base_drag.js"></script>
     <script type="text/javascript" src="js/base_form.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/json2.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

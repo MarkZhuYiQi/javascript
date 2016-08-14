@@ -308,6 +308,50 @@ function predef(e){
     e.preventDefault();
 }
 
+//设置cookie函数
+function setCookie(name,value,expires,path,domain,secure){
+    var cookieName=encodeURIComponent(name)+"="+encodeURIComponent(value);
+    if(expires instanceof Date){
+        cookieName+="; expires="+expires;
+    }
+    if(path instanceof String){
+        cookieName+="; path="+path;
+    }
+    if(domain instanceof String){
+        cookieName+="; domain="+domain;
+    }
+    if(secure){
+        cookieName+="; secure="+true;
+    }
+    document.cookie=cookieName;
+}
+//过期时间
+function setCookieDate(day){
+    var date=null;
+    if(typeof day =="number" && day>0){
+        date=new Date();
+        date.setDate(date.getDate()+day);
+    }else{
+        throw new Error("date illegal!must be a number and over 0");
+    }
+    return date;
+}
+ //获取cookie
+function getCookie(name){
+    var cookieName=encodeURIComponent(name)+"=";
+    var cookieStart=document.cookie.indexOf(cookieName);    //不存在就是-1
+    var cookieValue=null;
+    if(cookieStart>-1){
+        var cookieEnd=document.cookie.indexOf(";",cookieStart);
+        if(cookieEnd==-1){
+            cookieEnd=document.cookie.length;
+        }
+        cookieValue=decodeURIComponent(document.cookie.substring(cookieStart+cookieName.length,cookieEnd));
+    }else{
+        throw new Error("cookie does not exist!");
+    }
+    return cookieValue;
+ }
 
 
 

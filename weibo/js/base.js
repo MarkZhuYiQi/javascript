@@ -598,7 +598,7 @@ Base.prototype.animation=function(obj){
             // element.style[attr]=start+"px";     //每次点击都从start处开始
         }
         if(mul==undefined){
-            mul={};
+            mul={};             //这里面只能填 属性：目标值
             mul[attr]=final;
         };
         var stepLength={};      //用来存储同步动画时不同动画的不同步长
@@ -607,14 +607,13 @@ Base.prototype.animation=function(obj){
         element.timer = setInterval(function() {    //element.timer给每个
             var flag=true;          //动画是否运行结束的标记，同上功用，二选一
             for(var i in mul){
-
                 attr=i=="x" ? "left":i == "y" ? "top" :
                     i == "w" ? "width" : i == "h" ? "height" :
                         i=="o" ? "opacity" : i!=undefined ? i :
                             "left";
                 final=mul[i];
                 if(effect=="gradient"){
-                    stepLength[i]=attr == "opacity" ? (final - parseFloat(getStyle(element,attr)) * 100) / speed :
+                    stepLength[i] = attr == "opacity" ? (final - parseFloat(getStyle(element,attr)) * 100) / speed :
                     (final-parseInt(getStyle(element,attr)))/speed;
                     stepLength[i] = stepLength[i] > 0 ? Math.ceil(stepLength[i]) : Math.floor(stepLength[i]);
                 }

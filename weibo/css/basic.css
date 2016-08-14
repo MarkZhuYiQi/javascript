@@ -74,13 +74,17 @@ body{
 .member_ul li{
     list-style:none;
 }
-#header .login,#header .reg{
+#header .login,#header .reg,#header .info{
     float:right;
     width:35px;
     height:30px;
     line-height:30px;
     cursor:pointer;
 }
+#header .info{
+    width:auto;
+}
+
 #login{
     width:350px;
     height:250px;
@@ -100,7 +104,6 @@ body{
     color:#666;
     background:url(../images/login_header.png) repeat-x;
     border-bottom:1px solid #ccc;
-    margin:0 0 20px 0;
     cursor:move;
 }
 #login h2 img{
@@ -125,12 +128,12 @@ body{
 }
 #login .button{
     text-align:center;
-    padding:20px 0;
+    padding:15px 0;
 }
 #login .button .submit{
     width:107px;
     height:30px;
-    background:url(../images/login_button.png) no-repeat;
+    background:url(../images/login_button.png) no-repeat left;
     border:none;
     cursor:pointer;
 }
@@ -139,6 +142,11 @@ body{
     padding:5px 5px;
     color:#999;
     font-size:12px;
+}
+#login div.info{
+    padding:15px 0 5px 0;
+    text-align:center;
+    color:maroon;
 }
 #reg{
     width:600px;
@@ -375,6 +383,70 @@ body{
     left:380px;
     /*display:block;*/
 }
+
+
+#blog{
+    width:580px;
+    height:320px;
+    border:1px solid #ccc;
+    position:absolute;
+    display:none;
+    z-index:9999;
+    background:#fff;
+}
+#blog h2{
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:1px;
+    background:url(../images/login_header.png) repeat-x;
+}
+#blog h2 img{
+    float:right;
+    position:relative;
+    top:14px;
+    right:8px;
+    cursor:pointer;
+}
+#blog div.info{
+    padding:15px 0 5px 0;
+    text-align:center;
+    color:maroon;
+    display:none;
+}
+#blog dl{
+    padding:0 0 0 10px;
+}
+#blog dl dd{
+    font-size:14px;
+    padding:10px;
+}
+#blog dl dd input.title{
+    width:200px;
+    height:25px;
+    border:1px solid #ccc;
+    background:#fff;
+    font-size:14px;
+    color:#666;
+}
+#blog dl dd textarea{
+    width:360px;
+    height:100px;
+    max-width:360px;
+    max-height:100px;
+    background:#fff;
+    border:1px solid #ccc;
+    resize: none;
+}
+#blog dl dd input.submit{
+    width:107px;
+    height:33px;
+    border:none;
+    background:url("../images/blog_button.png")no-repeat left;
+    cursor:pointer;
+}
+
 #nav{
     width:465px;
     height:52px;
@@ -604,11 +676,72 @@ body{
     background:url("../images/share_bg.png") no-repeat 0 -472px;
 }
 
-#index{
+
+#index {
     width:630px;
     height:570px;
-    background:#eee;
     float:right;
+    position:relative;
+}
+#index span.loading {
+    position:absolute;
+    top:260px;
+    left:260px;
+    width:100px;
+    height:20px;
+    display:none;
+    background:url("../images/loading4.gif") no-repeat;
+}
+#index span.partLoading {
+    position:absolute;
+    top:160px;
+    left:260px;
+    width:100px;
+    height:20px;
+    display:none;
+    background:url("../images/loading4.gif") no-repeat;
+}
+#index div.content{
+    position:relative;
+    /*filter:alpha(opacity=0);*/
+    /*opacity:0;*/
+}
+#index div.content .detail1,#index div.content .detail2,#index div.content .detail3{
+    position:absolute;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+#index div.content .detail2{
+    top:193px;
+}
+#index div.content .detail3{
+    top:386px;
+}
+#index div.content h2 {
+    width:628px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    background:url("../images/side_h.png");
+    text-indent:10px;
+    border:1px solid #ccc;
+    border-bottom:none;
+    margin:0;
+}
+#index div.content h2 em {
+    float:right;
+    font-style:normal;
+    font-weight:normal;
+    padding:0 10px 0 0 ;
+}
+#index div.content p {
+    height:130px;
+    line-height:150%;
+    text-indent:26px;
+    padding:10px;
+    border:1px solid #ccc;
+    margin:0 0 10px 0;
+    overflow:hidden;
 }
 #banner{
     width:900px;

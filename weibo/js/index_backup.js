@@ -1027,7 +1027,6 @@ $(function(){
             $("#loading").show().center("200","40");
             _this.setAttribute("disabled","disabled");
             $(_this).css("background-position","right");
-
             ajax({
                 method: "post",
                 url: "add_blog.php",
@@ -1056,30 +1055,7 @@ $(function(){
                                         mul:{
                                             "o":0
                                         },
-                                        fn:function(){
-                                            ajax({
-                                                method:"post",
-                                                url:"get_blog.php",
-                                                data:{},
-                                                success:function(text){
-                                                    var json=JSON.parse(text);
-                                                    var html="";
-                                                    for(var i=0;i<json.length;i++){
-                                                        html+="<div class='content'><div class='detail"+(i+1)+"'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div></div>";
-                                                    }
-                                                    $("#index").html(html);
-                                                    $("#index .content .detail1").animation({
-                                                        mul:{
-                                                            "o":100
-                                                        }
-                                                    });
-                                                    $("#index .content .detail2").opacity(100);
-                                                    $("#index .content .detail3").opacity(100);
-                                                },
 
-                                                async:true
-                                            });
-                                        }
                                         // 我的想法：在关闭发布框的同时，将第一个和第二个记录移动到第二和第三的位置
                                         // 然后给最新消息腾出位置
                                         // fn:function(){
@@ -1096,6 +1072,45 @@ $(function(){
                                         //         }
                                         //     }).css("top","193px");
                                         // }
+
+                                    });
+                                    ajax({
+                                        method:"post",
+                                        url:"get_blog.php",
+                                        data:{},
+                                        // success:function(text){
+                                        //     $("#index .loading").hide();
+                                        //     var json=JSON.parse(text);
+                                        //     var html="";
+                                        //     for(var i=0;i<json.length;i++){
+                                        //         html+="<div class='content'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div>";
+                                        //     }
+                                        //     $("#index").html(html);
+                                        //     for(var i=0;i<json.length;i++) {
+                                        //         $("#index .content").getElement(i).animation({
+                                        //             attr: "o",
+                                        //             final: 100
+                                        //         });
+                                        //     }
+                                        // },
+                                        //  以上是原版的code
+                                        success:function(text){
+                                            var json=JSON.parse(text);
+                                            var html="";
+                                            for(var i=0;i<json.length;i++){
+                                                html+="<div class='content'><div class='detail"+(i+1)+"'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div></div>";
+                                            }
+                                            $("#index").html(html);
+                                            $("#index .content .detail1").animation({
+                                                mul:{
+                                                    "o":100
+                                                }
+                                            });
+                                            $("#index .content .detail2").opacity(100);
+                                            $("#index .content .detail3").opacity(100);
+                                        },
+
+                                        async:true
                                     });
                                 }
                             });
