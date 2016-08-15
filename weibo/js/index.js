@@ -993,7 +993,7 @@ $(function(){
             screen.lock();
         }
     });
-    $("#header .member a").click(function(){
+    $("#header .member .blog").click(function(){
         //锁屏遮罩
         blog.center(580,320).show();
         screen.lock().animation({
@@ -1027,7 +1027,6 @@ $(function(){
             $("#loading").show().center("200","40");
             _this.setAttribute("disabled","disabled");
             $(_this).css("background-position","right");
-
             ajax({
                 method: "post",
                 url: "add_blog.php",
@@ -1049,53 +1048,41 @@ $(function(){
                                 "fn": function () {
                                     screen.unlock();
                                     //获取博文列表
-                                    $("#index").html("<span class='partLoading'></span>");
-                                    $("#index .partloading").show();
-                                    $("#index .partLoading").hide();
-                                    $("#index .content .detail3").animation({
+                                    $("#index").html("<span class='loading'></span>");
+                                    $("#index .loading").show();
+                                    $("#index .content").animation({
                                         mul:{
                                             "o":0
-                                        },
-                                        fn:function(){
-                                            ajax({
-                                                method:"post",
-                                                url:"get_blog.php",
-                                                data:{},
-                                                success:function(text){
-                                                    var json=JSON.parse(text);
-                                                    var html="";
-                                                    for(var i=0;i<json.length;i++){
-                                                        html+="<div class='content'><div class='detail"+(i+1)+"'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div></div>";
-                                                    }
-                                                    $("#index").html(html);
-                                                    $("#index .content .detail1").animation({
-                                                        mul:{
-                                                            "o":100
-                                                        }
-                                                    });
-                                                    $("#index .content .detail2").opacity(100);
-                                                    $("#index .content .detail3").opacity(100);
-                                                },
-
-                                                async:true
-                                            });
                                         }
-                                        // 我的想法：在关闭发布框的同时，将第一个和第二个记录移动到第二和第三的位置
-                                        // 然后给最新消息腾出位置
-                                        // fn:function(){
-                                        //     $("#index .content .detail1").animation({
-                                        //         mul:{
-                                        //             "y":193,
-                                        //             "o":100
-                                        //         }
-                                        //     }).css("top","0");
-                                        //     $("#index .content .detail2").animation({
-                                        //         mul:{
-                                        //             "y":386,
-                                        //             "o":100
-                                        //         }
-                                        //     }).css("top","193px");
-                                        // }
+                                    });
+                                    ajax({
+                                        method:"post",
+                                        url:"get_blog.php",
+                                        data:{},
+                                        success:function(text) {
+                                            $("#index .loading").hide();
+                                            var json = JSON.parse(text);
+                                            var html = "";
+                                            for (var i = 0; i < json.length; i++) {
+                                                html += "<div class='content'><h2><em>" + json[i].date + "</em>" + json[i].title + "</h2><p>" + json[i].content + "</p></div>";
+                                            }
+                                            $("#index").html(html);
+                                            $("#index .content").getElement(0).css("height", 0);
+                                            for (var i = 0; i < json.length - 1; i++) {
+                                                $("#index .content").getElement(i).animation({
+                                                    mul: {
+                                                        o: 100
+                                                    }
+                                                });
+                                            }
+                                            $("#index .content").getElement(0).animation({
+                                                mul: {
+                                                    o: 100,
+                                                    h: 192
+                                                }
+                                            }).opacity(0);
+                                        },
+                                        async:true
                                     });
                                 }
                             });
@@ -1120,20 +1107,13 @@ $(function(){
             var json=JSON.parse(text);
             var html="";
             for(var i=0;i<json.length;i++){
-                html+="<div class='content'><div class='detail"+(i+1)+"'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div></div>";
-                // html+="<div class='content'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div>";
+                html+="<div class='content'><h2><em>"+json[i].date+"</em>"+json[i].title+"</h2><p>"+json[i].content+"</p></div>";
             }
             $("#index").html(html);
             for(var i=0;i<json.length;i++) {
-                // $("#index .content").getElement(i).animation({
-                //     mul:{
-                //         o:100
-                //     }
-                // });
-
-                $("#index .content .detail"+(i+1)).animation({
-                    mul:{
-                        "o":100
+                $("#index .content").getElement(i).animation({
+                    mul: {
+                        o: 100
                     }
                 });
             }
@@ -1143,8 +1123,97 @@ $(function(){
 
 
 
+//换肤
+    var skin=$("#skin");
+    //想要实现改变大小，控件不出视野范围，就要使用连缀，否则获取不到elements里面没有login控件，无法控制！！！！！
+    skin.center(650,360).resize(function(){
+        // login.center(350,250);   //窗口改变大小，控件始终居中
+        if(skin.css("display")=="block"){  //如果发文显示才锁屏
+            screen.lock();
+        }
+    });
+    $("#header .member .skin").click(function(){
+        //锁屏遮罩
+        skin.center(650,360).show();
+        screen.lock().animation({
+            "attr":"o",
+            "final":80,
+            "speed":5
+        });
+        if($("#skin .skin_bg").html().length===0) {
+            $("#skin .skin_bg").html("<span class='loading'></span>");
+            $("#skin .skin_bg .loading").show();
+            ajax({
+                method: "post",
+                url: "skin.php",
+                data: {
+                    "type":"get"
+                },
+                async: true,
+                success: function (text) {
+                    var json = JSON.parse(text);
+                    var html = "";
+                    for (var i = 0; i < json.length; i++) {
+                        html += "<dl><dt><img src='images/" + json[i]['small_bg'] + "' big_bg='" + json[i]['big_bg'] + "' bg_color='"+json[i]['bg_color']+"' alt=''></dt><dd>" + json[i]['bg_text'] + "</dd></dl>";
+                    }
+                    $("#skin .skin_bg").html(html).animation({
+                        mul:{
+                            "o":100
+                        }
+                    }).opacity(0);
+                    //点击换肤,为什么必须放在这里？
+                    $("#skin dl dt img").click(function(){
+                        $("body").css("background",$(this).attr("bg_color")+" "+"url('images/"+$(this).attr('big_bg')+"')repeat-x");
+                        ajax({
+                            method: "post",
+                            url: "skin.php",
+                            data: {
+                                "type":"set",
+                                "big_bg":$(this).attr("big_bg")
+                            },
+                            async: true,
+                            success: function (text) {
+                                alert(text);
+                            }
+                        });
+                    });
+                    ajax({
 
+                    });
+                }
+            });
+        }
+    });
 
+    //需要先渐变再关闭
+    $("#skin .close").click(function(){
+        skin.hide();
+        //解锁
+        screen.animation({
+            "attr":"o",
+            "final":0,
+            "speed":5,
+            "fn":function(){
+                screen.unlock();
+            }
+        });
+    });
+    //拖拽登录框,默认没有这个方法，加载插件后，需要通过继承调用
+    skin.drag($("#skin h2").first());
+    //默认显示的图片
+    ajax({
+        method: "post",
+        url: "skin.php",
+        data: {
+            "type":"default"
+        },
+        async: true,
+        success: function (text) {
+            var json = JSON.parse(text);
+            //换肤
+            $("body").css("background",json[0]['bg_color']+" "+"url('images/"+json[0]['big_bg']+"')repeat-x");
+        }
+    });
 
 
 

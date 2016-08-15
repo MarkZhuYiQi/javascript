@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2016/8/12.
  */
+
+//序列化post值
 $().extend("serialize",function(){
     for(var k=0;k<this.elements.length;k++){
         var form=this.elements[k];
@@ -19,11 +21,10 @@ $().extend("serialize",function(){
                 case "file":
                     break;
                 case "radio":
-                    break;
                 case "checkbox":
                     if(!filed.selected)break;
                 case "select-one":
-
+                    //什么都不写会直接跟给下面一样执行最新的
                 case "select-multiple":
                     for(var j=0;j<filed.options.length;j++){
                         var option=filed.options[j];
