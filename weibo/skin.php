@@ -18,7 +18,7 @@ if($_POST["type"]=="get"){
     while(!!$rows=$query->fetch_array(MYSQLI_ASSOC)){
         $json.=json_encode($rows).",";
     }
-    sleep(1);
+    sleep(30);
     echo '['.mb_substr($json,0,-1,"utf-8")."]";
 }else if($_POST["type"]=="default") {
     $sql = "SELECT `big_bg`,`bg_color`,`bg_flag` FROM `weibo_skin` WHERE `bg_flag`=1 LIMIT 1";
@@ -29,7 +29,7 @@ if($_POST["type"]=="get"){
     $sql2 = "UPDATE `weibo_skin` SET `bg_flag`=1 WHERE `big_bg`='{$_POST['big_bg']}'";
     $mysqli->query($sql1);
     $query=$mysqli->query($sql2);
-    echo $query->affected_rows;
+    echo $mysqli->mysqli->affected_rows;
 }else{
     echo $_POST["type"];
 }

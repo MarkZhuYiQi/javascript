@@ -494,8 +494,6 @@ body{
 
 }
 #skin .skin_bg{
-    opacity:0;
-    filter:alpha(opacity=0);
     position:relative;
 }
 #skin .skin_bg .loading {
@@ -504,7 +502,6 @@ body{
     left:270px;
     width:100px;
     height:20px;
-    display:none;
     background:url("../images/loading4.gif") no-repeat;
 }
 #nav{
@@ -597,11 +594,6 @@ body{
 #sidebar ul li a {
     text-decoration:none;
     color:#333;
-}
-#index{
-    width:630px;
-    height:500px;
-    float:right;
 }
 #screen{
     position:absolute;
@@ -745,7 +737,7 @@ body{
     position:relative;
     overflow:hidden;
 }
-#index span.partLoading {
+#index span.loading {
     position:absolute;
     top:160px;
     left:260px;

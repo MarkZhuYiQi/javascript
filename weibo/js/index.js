@@ -1142,7 +1142,7 @@ $(function(){
         });
         if($("#skin .skin_bg").html().length===0) {
             $("#skin .skin_bg").html("<span class='loading'></span>");
-            $("#skin .skin_bg .loading").show();
+            // $("#skin .skin_bg .loading").show().opacity(100);
             ajax({
                 method: "post",
                 url: "skin.php",
@@ -1156,7 +1156,7 @@ $(function(){
                     for (var i = 0; i < json.length; i++) {
                         html += "<dl><dt><img src='images/" + json[i]['small_bg'] + "' big_bg='" + json[i]['big_bg'] + "' bg_color='"+json[i]['bg_color']+"' alt=''></dt><dd>" + json[i]['bg_text'] + "</dd></dl>";
                     }
-                    $("#skin .skin_bg").html(html).animation({
+                    $("#skin .skin_bg").html(html).opacity(0).animation({
                         mul:{
                             "o":100
                         }
@@ -1173,12 +1173,15 @@ $(function(){
                             },
                             async: true,
                             success: function (text) {
-                                alert(text);
+                                if(text==1){
+                                    $("#success").show().center(200,40);
+                                    $("#success p").html("皮肤更换成功！");
+                                    setTimeout(function(){
+                                        $("#success").hide();
+                                    },1500);
+                                }
                             }
                         });
-                    });
-                    ajax({
-
                     });
                 }
             });

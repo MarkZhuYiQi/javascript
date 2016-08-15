@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2016 at 03:20 PM
--- Server version: 5.6.17
+-- Generation Time: 2016-08-15 16:38:57
+-- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `weibo_blog`
+-- 表的结构 `weibo_blog`
 --
 
 CREATE TABLE IF NOT EXISTS `weibo_blog` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `weibo_blog` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `weibo_blog`
+-- 转存表中的数据 `weibo_blog`
 --
 
 INSERT INTO `weibo_blog` (`id`, `title`, `content`, `date`) VALUES
@@ -48,7 +48,35 @@ INSERT INTO `weibo_blog` (`id`, `title`, `content`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `weibo_user`
+-- 表的结构 `weibo_skin`
+--
+
+CREATE TABLE IF NOT EXISTS `weibo_skin` (
+  `id` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `small_bg` varchar(200) NOT NULL,
+  `big_bg` varchar(200) NOT NULL,
+  `bg_color` varchar(200) NOT NULL,
+  `bg_text` varchar(200) NOT NULL,
+  `bg_flag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `weibo_skin`
+--
+
+INSERT INTO `weibo_skin` (`id`, `small_bg`, `big_bg`, `bg_color`, `bg_text`, `bg_flag`) VALUES
+(1, 'small_bg1.png', 'bg1.jpg', '#E7E9E8', '皮肤1', 0),
+(2, 'small_bg2.png', 'bg2.jpg', '#ECF0FC', '皮肤2', 1),
+(3, 'small_bg3.png', 'bg3.jpg', '#E2E2E2', '皮肤3', 0),
+(4, 'small_bg4.png', 'bg4.jpg', '#FFFFFF', '皮肤4', 0),
+(5, 'small_bg5.png', 'bg5.jpg', '#F3F3F3', '皮肤5', 0),
+(6, 'small_bg6.png', 'bg6.jpg', '#EBDEBE', '皮肤6', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `weibo_user`
 --
 
 CREATE TABLE IF NOT EXISTS `weibo_user` (
@@ -64,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `weibo_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `weibo_user`
+-- 转存表中的数据 `weibo_user`
 --
 
 INSERT INTO `weibo_user` (`id`, `user`, `pass`, `ques`, `ans`, `email`, `birthday`, `ps`) VALUES
