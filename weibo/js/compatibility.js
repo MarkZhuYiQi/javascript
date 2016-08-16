@@ -351,7 +351,7 @@ function getCookie(name){
         throw new Error("cookie does not exist!");
     }
     return cookieValue;
- }
+}
 
 
 
