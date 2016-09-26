@@ -18,7 +18,7 @@ if($_POST["type"]=="get"){
     while(!!$rows=$query->fetch_array(MYSQLI_ASSOC)){
         $json.=json_encode($rows).",";
     }
-    sleep(30);
+    sleep(1);
     echo '['.mb_substr($json,0,-1,"utf-8")."]";
 }else if($_POST["type"]=="default") {
     $sql = "SELECT `big_bg`,`bg_color`,`bg_flag` FROM `weibo_skin` WHERE `bg_flag`=1 LIMIT 1";
