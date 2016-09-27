@@ -12,7 +12,6 @@ function Base(args){
     //私有属性，防止共有导致操作影响无关元素
     this.elements=[];
     if(typeof args=="string"){
-
         if(args.indexOf(" ")!=-1){
             //css格式模拟
             var childElements=[];       //存放临时节点对象的数组,防止父节点被覆盖

@@ -124,7 +124,7 @@ function preDef(event){
 addEvent.fixEvent=function(event){
     event.preventDefault = addEvent.fixEvent.preventDefault;
     event.stopPropagation=addEvent.fixEvent.stopPropagation;
-    event.target=event.srcElement;
+    event.target=event.srcElement;      //相当于当前事件的源对象，比如点击按钮触发事件，源对象就是按钮
     return event;
 };
 //ie阻止默认行为

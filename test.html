@@ -2,82 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>漂亮的评论滚动效果，带头像图片一起滚动</title>
-	<style>
-		html,body{font-family:Verdana,sans-serif; font-size:12px;}
-		ul{padding:0;}
-		a:link{text-decoration:none;}
-		.box {padding:30px 0 30px 0;background: #C05732;}
-		.box_content a {color:#E6E5CC;}
-		.box_content {clear:both; overflow:hidden; width:287px; padding:0 0 0 30px;}
-		.r_comments{position:relative; height:262px;}
-		.r_comments ul{list-style:none outside none; margin-left:0px; border-top:1px dashed #a04524;}
-		.r_comments ul li{padding:5px 0px; line-height:20px; border-bottom:1px dashed #8C391C; border-top:1px dashed #D08364;}
-		.r_comments li img{background:#FFF; border:1px solid#999; height:32px; float:left; padding:1px; margin:4px 4px 0 0;}
-	</style>
+	<title></title>
+
 </head>
 <body>
-<div class="box">
-	<div class="box_content r_comments">
-		<ul style="margin-top: 0px;" id="rcslider">
-			<li style="opacity: 0.6;"><img alt="公元零零零000" src="/jscss/demoimg/201311/0.png" class="avatar avatar-32 photo" height="32" width="32"> <a href="#">零零零000：<br>
-				正在学习wordpress，正好找到这篇</a><br>
-			</li>
-			<li style="opacity: 0.6;"><img alt="大世界壹壹壹111" src="/jscss/demoimg/201311/1.png" class="avatar avatar-32 photo" height="32" width="32"> <a href="#">壹壹壹111：<br>
-				谷歌搜了下进来了。大牛。</a><br>
-			</li>
-			<li style="opacity: 0.6;"><img alt="天涯海角22" src="/jscss/demoimg/201311/2.png" class="avatar avatar-32 photo" height="32" width="32"> <a href="#">贰贰贰222：<br>
-				嘿嘿，看了你的那篇《漂亮的评论滚动效果》</a><br>
-			</li>
-			<li style="opacity: 0.6;"><img alt="小小少年" src="/jscss/demoimg/201311/3.png" class="avatar avatar-32 photo" height="32" width="32"> <a href="#">打跑小日本-叁叁叁333：<br>
-				请教个问题，使用media query后</a><br>
-			</li>
-			<li style="opacity: 0.6;"><img alt="大块头儿郎4" src="/jscss/demoimg/201311/4.png" class="avatar avatar-32 photo" height="32" width="32"> <a href="#">大块头儿郎4：<br>
-				吹吧，这还挺不错，这个可以测试一下</a><br>
-			</li>
-		</ul>
-	</div>
-</div>
+
 <script src="jquery-3.1.0.js" type="text/javascript"></script>
-<script type="text/javascript">
-	jQuery(function(a) {
-		a(function() {
-			var b;
-			a("#rcslider").hover(function() {
-						clearInterval(b)
-					},
-					function() {
-						b = setInterval(function() {
-									var b = a("#rcslider"),
-											c = b.find("li:last").height();
-									b.animate({
-												marginTop: c + 3 + "px"
-											},
-											1e3,
-											function() {
-												b.find("li:last").prependTo(b),
-														b.find("li:first").hide(),
-														b.css({
-															marginTop: 0
-														}),
-														b.find("li:first").fadeIn(1e3)
-											})
-								},
-								3e3)
-					}).trigger("mouseleave")
-		}),
-				a(document).ready(function() {
-					a("#rcslider li").css({
-						opacity: ".6"
-					}),
-							a("#rcslider li").hover(function() {
-										a(this).stop().fadeTo(300, 1)
-									},
-									function() {
-										a(this).stop().fadeTo(300, .6)
-									})
-				})
-	});
-</script>
+<script type="text/javascript" src="test.js"></script>
 </body>
 </html>
