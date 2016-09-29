@@ -7,58 +7,77 @@ var cheerio=require("cheerio");
 var baseUrl="http://www.imooc.com/learn/";
 
 var url="http://www.imooc.com/learn/637";
+var crawlUrl="http://http://www.imooc.com/u/108492/courses?sort=publish";
 
 // getPageAsync(url);
 
 function filterChapters(html){
     // courseData={
-    //     title:"",
+    //     courseHeadline:"",
     //     learningNum:"",
-    //     videos:[{
-    //         chapterTitle:"",
-    //         videos:[
+    //     section:[{
+    //         sectionHeadline:"",
+    //         sectionVideos:[
     //             {
     //                 id:"",
-    //                 title:""
+    //                 chapterTitle:""
     //             },{},{},{}
     //         ]
-    //     }]
+    //     },{},{},{}]
     // };
     var $=cheerio.load(html);
-    var chapters=$(".chapter");
-    var courseData=[];
-    chapters.each(function(item){
-        var chapter=$(this);
-        //课程标题
-        var courseHeadline=chapter.find(".1").text().trim();
-        var chapterHeadline=chapter.find("strong").text().trim();      //章节标题
-        var learningNum=chapter.find(".js-learn-num").text().trim();    //学习人数
-        //每个li中包含每个小节的信息
-        var chapterVideo=chapter.find(".video").children('li');
-        var chapterData={
-            chapterHeadline:chapterHeadline,
-            // chapterTitle:chapterTitle,
-            videos:[]
+    //课程标题
+    var courseHeadline = $(".hd").find("h2").text().trim();
+    //课程学习人数
+    var learningNum=$(".statics .js-learn-num").text().trim();
+    //章节内容
+    var chapters=$(".mod-chapters .chapter");
+    //存放整个页面内容
+    var courseData={
+        courseHeadline:courseHeadline,
+        learningNum:learningNum,
+        section:[]
+    };
+    //循环出几个章节内容
+    chapters.each(function(item) {
+        //每个章节内容
+        var section = $(this);
+        //章节标题
+        var sectionHeadline = section.find("strong").text().trim().replace(/\s+/g,' ');
+        //章节视频相关内容
+        var sectionVideos = section.find(".video").children('li');
+        var sectionData = {
+            sectionHeadline: sectionHeadline,
+            videos: []
         };
-        chapterVideo.each(function(item){
-            var id=$(this).attr("data-media-id");
-            var title=$(this).find(".J-media-item").text();
-            chapterData.videos.push({
-                id:id,
-                title:title
+        //循环视频内容
+        sectionVideos.each(function (sectionItem) {
+            //视频ID
+            var chapterId = $(this).attr("data-media-id");
+            //视频标题
+            var chapterTitle = $(this).find(".J-media-item").text().trim().replace(/\s+/g,' ');
+            //把小节信息放到章节信息的video中
+            sectionData.videos.push({
+                chapterId: chapterId,
+                chapterTitle: chapterTitle+"\n"
             });
         });
-        courseData.push(chapterData);
+        courseData.section.push(sectionData);
     });
     return courseData;
 }
 function printCourseInfo(courseData){
-    courseData.forEach(function (item){
-        var headLine=item.chapterHeadline;
-        console.log("\t"+headLine.replace(/[\s]+/g,'')+"\n");
-        item.videos.forEach(function(content){
-            console.log("["+content.id+"]"+content.title.replace(/[\s]+/g,' '));
-        })
+    courseData.forEach(function(course){
+        var courseHeadline=course.courseHeadline;
+        var learningNum=course.learningNum;
+        console.log("<<"+courseHeadline+">>");
+        console.log(learningNum);
+        course.section.forEach(function(videoData){
+            console.log("||"+videoData.sectionHeadline+"||\n");
+            videoData.videos.forEach(function(chapter){
+                console.log("["+chapter.chapterId+"]"+chapter.chapterTitle+"\n");
+            });
+        });
     });
 }
 
@@ -77,11 +96,11 @@ function getPageAsync(url){
             });
         }).on('error',function(e){
             reject(e);
-            console.log("获取课程数据出错");
+            console.log("获取课程数据出错!");
         });
     });
 }
-
+var videoIds=[348,637];
 var fetchCourseArr=[];
 videoIds.forEach(function(id){
     fetchCourseArr.push(getPageAsync(baseUrl+id));      //依次获取各个页面的html数据
@@ -95,4 +114,8 @@ Promise
             var courses=filterChapters(html);           //依次处理每个课程的HTML数据
             coursesData.push(courses);
         });
+        // coursesData.sort(function(a,b){
+        //     return a.number<b.number;
+        // });
+        printCourseInfo(coursesData);
     });
