@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "supports-color": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0"
   }
 }
